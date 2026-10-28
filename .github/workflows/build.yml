@@ -1,0 +1,46 @@
+name: build-apk
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Build debug APK
+        run: gradle assembleDebug --no-daemon
+
+      - name: Publish APK to the apk branch
+        run: |
+          VERSION=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)
+          mkdir -p /tmp/out
+          cp app/build/outputs/apk/debug/app-debug.apk "/tmp/out/compass-watch-v${VERSION}.apk"
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin apk >/dev/null 2>&1; then
+            git fetch origin apk
+            git checkout -f -B apk-tmp origin/apk
+          else
+            git checkout --orphan apk-tmp
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+          cp /tmp/out/*.apk .
+          git add ./*.apk
+          git commit -m "APK v${VERSION}" || echo "nothing to commit"
+          git push origin HEAD:apk
