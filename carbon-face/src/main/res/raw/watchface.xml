@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WatchFace width="480" height="480" clipShape="CIRCLE">
+  <Metadata key="CLOCK_TYPE" value="ANALOG"/>
+  <Metadata key="PREVIEW_TIME" value="10:08:36"/>
+  <BitmapFonts>
+    <BitmapFont name="dt">
+      <Character name="0" resource="f_dt_d0" width="14" height="31"/>
+      <Character name="1" resource="f_dt_d1" width="14" height="31"/>
+      <Character name="2" resource="f_dt_d2" width="14" height="31"/>
+      <Character name="3" resource="f_dt_d3" width="14" height="31"/>
+      <Character name="4" resource="f_dt_d4" width="14" height="31"/>
+      <Character name="5" resource="f_dt_d5" width="14" height="31"/>
+      <Character name="6" resource="f_dt_d6" width="14" height="31"/>
+      <Character name="7" resource="f_dt_d7" width="14" height="31"/>
+      <Character name="8" resource="f_dt_d8" width="14" height="31"/>
+      <Character name="9" resource="f_dt_d9" width="14" height="31"/>
+      <Character name=" " resource="f_dt_sp" width="7" height="31"/>
+      <Character name="A" resource="f_dt_ua" width="16" height="31"/>
+      <Character name="B" resource="f_dt_ub" width="16" height="31"/>
+      <Character name="C" resource="f_dt_uc" width="16" height="31"/>
+      <Character name="D" resource="f_dt_ud" width="16" height="31"/>
+      <Character name="E" resource="f_dt_ue" width="14" height="31"/>
+      <Character name="F" resource="f_dt_uf" width="14" height="31"/>
+      <Character name="G" resource="f_dt_ug" width="17" height="31"/>
+      <Character name="H" resource="f_dt_uh" width="17" height="31"/>
+      <Character name="I" resource="f_dt_ui" width="8" height="31"/>
+      <Character name="J" resource="f_dt_uj" width="14" height="31"/>
+      <Character name="L" resource="f_dt_ul" width="14" height="31"/>
+      <Character name="M" resource="f_dt_um" width="21" height="31"/>
+      <Character name="N" resource="f_dt_un" width="17" height="31"/>
+      <Character name="O" resource="f_dt_uo" width="17" height="31"/>
+      <Character name="P" resource="f_dt_up" width="16" height="31"/>
+      <Character name="R" resource="f_dt_ur" width="16" height="31"/>
+      <Character name="S" resource="f_dt_us" width="15" height="31"/>
+      <Character name="T" resource="f_dt_ut" width="15" height="31"/>
+      <Character name="U" resource="f_dt_uu" width="16" height="31"/>
+      <Character name="V" resource="f_dt_uv" width="16" height="31"/>
+      <Character name="W" resource="f_dt_uw" width="21" height="31"/>
+      <Character name="Y" resource="f_dt_uy" width="15" height="31"/>
+    </BitmapFont>
+    <BitmapFont name="st">
+      <Character name="0" resource="f_st_d0" width="16" height="35"/>
+      <Character name="1" resource="f_st_d1" width="16" height="35"/>
+      <Character name="2" resource="f_st_d2" width="16" height="35"/>
+      <Character name="3" resource="f_st_d3" width="16" height="35"/>
+      <Character name="4" resource="f_st_d4" width="16" height="35"/>
+      <Character name="5" resource="f_st_d5" width="16" height="35"/>
+      <Character name="6" resource="f_st_d6" width="16" height="35"/>
+      <Character name="7" resource="f_st_d7" width="16" height="35"/>
+      <Character name="8" resource="f_st_d8" width="16" height="35"/>
+      <Character name="9" resource="f_st_d9" width="16" height="35"/>
+      <Character name="," resource="f_st_comma" width="8" height="35"/>
+    </BitmapFont>
+    <BitmapFont name="gl">
+      <Character name="0" resource="f_gl_d0" width="10" height="21"/>
+      <Character name="1" resource="f_gl_d1" width="10" height="21"/>
+      <Character name="2" resource="f_gl_d2" width="10" height="21"/>
+      <Character name="3" resource="f_gl_d3" width="10" height="21"/>
+      <Character name="4" resource="f_gl_d4" width="10" height="21"/>
+      <Character name="5" resource="f_gl_d5" width="10" height="21"/>
+      <Character name="6" resource="f_gl_d6" width="10" height="21"/>
+      <Character name="7" resource="f_gl_d7" width="10" height="21"/>
+      <Character name="8" resource="f_gl_d8" width="10" height="21"/>
+      <Character name="9" resource="f_gl_d9" width="10" height="21"/>
+      <Character name="," resource="f_gl_comma" width="5" height="21"/>
+    </BitmapFont>
+    <BitmapFont name="hr">
+      <Character name="0" resource="f_hr_d0" width="15" height="35"/>
+      <Character name="1" resource="f_hr_d1" width="15" height="35"/>
+      <Character name="2" resource="f_hr_d2" width="15" height="35"/>
+      <Character name="3" resource="f_hr_d3" width="15" height="35"/>
+      <Character name="4" resource="f_hr_d4" width="15" height="35"/>
+      <Character name="5" resource="f_hr_d5" width="15" height="35"/>
+      <Character name="6" resource="f_hr_d6" width="15" height="35"/>
+      <Character name="7" resource="f_hr_d7" width="15" height="35"/>
+      <Character name="8" resource="f_hr_d8" width="15" height="35"/>
+      <Character name="9" resource="f_hr_d9" width="15" height="35"/>
+      <Character name="-" resource="f_hr_minus" width="11" height="35"/>
+    </BitmapFont>
+    <BitmapFont name="tp">
+      <Character name="0" resource="f_tp_d0" width="15" height="35"/>
+      <Character name="1" resource="f_tp_d1" width="15" height="35"/>
+      <Character name="2" resource="f_tp_d2" width="15" height="35"/>
+      <Character name="3" resource="f_tp_d3" width="15" height="35"/>
+      <Character name="4" resource="f_tp_d4" width="15" height="35"/>
+      <Character name="5" resource="f_tp_d5" width="15" height="35"/>
+      <Character name="6" resource="f_tp_d6" width="15" height="35"/>
+      <Character name="7" resource="f_tp_d7" width="15" height="35"/>
+      <Character name="8" resource="f_tp_d8" width="15" height="35"/>
+      <Character name="9" resource="f_tp_d9" width="15" height="35"/>
+      <Character name="-" resource="f_tp_minus" width="11" height="35"/>
+      <Character name="°" resource="f_tp_deg" width="11" height="35"/>
+      <Character name="C" resource="f_tp_uc" width="17" height="35"/>
+    </BitmapFont>
+    <BitmapFont name="bt">
+      <Character name="0" resource="f_bt_d0" width="11" height="23"/>
+      <Character name="1" resource="f_bt_d1" width="11" height="23"/>
+      <Character name="2" resource="f_bt_d2" width="11" height="23"/>
+      <Character name="3" resource="f_bt_d3" width="11" height="23"/>
+      <Character name="4" resource="f_bt_d4" width="11" height="23"/>
+      <Character name="5" resource="f_bt_d5" width="11" height="23"/>
+      <Character name="6" resource="f_bt_d6" width="11" height="23"/>
+      <Character name="7" resource="f_bt_d7" width="11" height="23"/>
+      <Character name="8" resource="f_bt_d8" width="11" height="23"/>
+      <Character name="9" resource="f_bt_d9" width="11" height="23"/>
+      <Character name="p" resource="f_bt_pct" width="14" height="23"/>
+    </BitmapFont>
+  </BitmapFonts>
+  <Scene backgroundColor="#FF000000">
+    <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg"/></PartImage>
+    <PartImage x="0" y="0" width="480" height="480" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_bg"/></PartImage>
+    <Group name="data" x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/>
+      <PartDraw x="205" y="126" width="72" height="10">
+        <RoundRectangle x="0.4" y="0.6" width="69.7" height="7.9" cornerRadiusX="4" cornerRadiusY="4"><Fill color="#C8062834"/></RoundRectangle>
+        <RoundRectangle x="0.4" y="0.6" width="69.7" height="7.9" cornerRadiusX="4" cornerRadiusY="4"><Fill color="#FF00ECFA"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 69.7 / 100"/></RoundRectangle>
+        <RoundRectangle x="2.4" y="1.8" width="65.7" height="1.6" cornerRadiusX="0.8" cornerRadiusY="0.8"><Fill color="#AAC8FFFF"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 69.7 / 100 - 4"/></RoundRectangle>
+      </PartDraw>
+      <PartText x="229" y="104" width="90" height="23"><Text align="START"><BitmapFont family="bt" size="23"><Template>%sp<Parameter expression="[BATTERY_PERCENT]"/></Template></BitmapFont></Text></PartText>
+      <Condition><Expressions><Expression name="wd0"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 0]]></Expression><Expression name="wd1"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 1]]></Expression><Expression name="wd2"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 2]]></Expression><Expression name="wd3"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 3]]></Expression><Expression name="wd4"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 4]]></Expression><Expression name="wd5"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 5]]></Expression><Expression name="wd6"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 6]]></Expression></Expressions>
+        <Compare expression="wd0">
+          <PartText x="156" y="134" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>SUN %s<Parameter expression="[DAY]"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="wd1">
+          <PartText x="156" y="134" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>MON %s<Parameter expression="[DAY]"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="wd2">
+          <PartText x="156" y="134" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>TUE %s<Parameter expression="[DAY]"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="wd3">
+          <PartText x="156" y="134" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>WED %s<Parameter expression="[DAY]"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="wd4">
+          <PartText x="156" y="134" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>THU %s<Parameter expression="[DAY]"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="wd5">
+          <PartText x="156" y="134" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>FRI %s<Parameter expression="[DAY]"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="wd6">
+          <PartText x="156" y="134" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>SAT %s<Parameter expression="[DAY]"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+      </Condition>
+      <Condition><Expressions><Expression name="m1"><![CDATA[[MONTH] == 1]]></Expression><Expression name="m2"><![CDATA[[MONTH] == 2]]></Expression><Expression name="m3"><![CDATA[[MONTH] == 3]]></Expression><Expression name="m4"><![CDATA[[MONTH] == 4]]></Expression><Expression name="m5"><![CDATA[[MONTH] == 5]]></Expression><Expression name="m6"><![CDATA[[MONTH] == 6]]></Expression><Expression name="m7"><![CDATA[[MONTH] == 7]]></Expression><Expression name="m8"><![CDATA[[MONTH] == 8]]></Expression><Expression name="m9"><![CDATA[[MONTH] == 9]]></Expression><Expression name="m10"><![CDATA[[MONTH] == 10]]></Expression><Expression name="m11"><![CDATA[[MONTH] == 11]]></Expression><Expression name="m12"><![CDATA[[MONTH] == 12]]></Expression></Expressions>
+        <Compare expression="m1">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>JAN%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m2">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>FEB%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m3">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>MAR%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m4">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>APR%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m5">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>MAY%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m6">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>JUN%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m7">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>JUL%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m8">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>AUG%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m9">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>SEP%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m10">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>OCT%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m11">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>NOV%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Compare expression="m12">
+          <PartText x="155" y="157" width="170" height="31"><Text align="CENTER"><BitmapFont family="dt" size="31"><Template>DEC%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+      </Condition>
+      <PartText x="62" y="227" width="170" height="35"><Text align="CENTER"><BitmapFont family="st" size="35"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_COUNT])"/></Template></BitmapFont></Text></PartText>
+      <PartText x="63" y="257" width="170" height="21"><Text align="CENTER"><BitmapFont family="gl" size="21"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_GOAL])"/></Template></BitmapFont></Text></PartText>
+      <Condition><Expressions><Expression name="hrok"><![CDATA[[HEART_RATE] > 0]]></Expression></Expressions>
+        <Compare expression="hrok">
+          <PartText x="252" y="232" width="170" height="35"><Text align="CENTER"><BitmapFont family="hr" size="35"><Template>%s<Parameter expression="[HEART_RATE]"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Default>
+          <PartText x="252" y="232" width="170" height="35"><Text align="CENTER"><BitmapFont family="hr" size="35"><Template>--%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Default>
+      </Condition>
+      <Condition><Expressions><Expression name="wok">[WEATHER.IS_AVAILABLE]</Expression></Expressions>
+        <Compare expression="wok">
+          <Condition><Expressions><Expression name="w_storm">[WEATHER.CONDITION] == 9</Expression><Expression name="w_snow">[WEATHER.CONDITION] == 5 || [WEATHER.CONDITION] == 7 || [WEATHER.CONDITION] == 10 || [WEATHER.CONDITION] == 11</Expression><Expression name="w_heavyrain">[WEATHER.CONDITION] == 4</Expression><Expression name="w_rain">[WEATHER.CONDITION] == 6 || [WEATHER.CONDITION] == 12</Expression><Expression name="w_fog">[WEATHER.CONDITION] == 3 || [WEATHER.CONDITION] == 13</Expression><Expression name="w_windy">[WEATHER.CONDITION] == 15</Expression><Expression name="w_cloudy">[WEATHER.CONDITION] == 2</Expression><Expression name="w_pnight">[WEATHER.CONDITION] == 14 &amp;&amp; ![WEATHER.IS_DAY]</Expression><Expression name="w_partly">[WEATHER.CONDITION] == 14</Expression><Expression name="w_night">([WEATHER.CONDITION] == 1 || [WEATHER.CONDITION] == 8) &amp;&amp; ![WEATHER.IS_DAY]</Expression><Expression name="w_sunny">[WEATHER.CONDITION] == 1 || [WEATHER.CONDITION] == 8</Expression></Expressions>
+            <Compare expression="w_storm"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_storm"/></PartImage></Compare>
+            <Compare expression="w_snow"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_snow"/></PartImage></Compare>
+            <Compare expression="w_heavyrain"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_heavyrain"/></PartImage></Compare>
+            <Compare expression="w_rain"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_rain"/></PartImage></Compare>
+            <Compare expression="w_fog"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_fog"/></PartImage></Compare>
+            <Compare expression="w_windy"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_windy"/></PartImage></Compare>
+            <Compare expression="w_cloudy"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_cloudy"/></PartImage></Compare>
+            <Compare expression="w_pnight"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_pnight"/></PartImage></Compare>
+            <Compare expression="w_partly"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_partly"/></PartImage></Compare>
+            <Compare expression="w_night"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_night"/></PartImage></Compare>
+            <Compare expression="w_sunny"><PartImage x="202" y="287" width="70" height="49"><Image resource="w_sunny"/></PartImage></Compare>
+            <Default><PartImage x="202" y="287" width="70" height="49"><Image resource="w_partly"/></PartImage></Default>
+          </Condition>
+          <PartText x="154" y="340" width="170" height="35"><Text align="CENTER"><BitmapFont family="tp" size="35"><Template>%s°C<Parameter expression="round([WEATHER.TEMPERATURE])"/></Template></BitmapFont></Text></PartText>
+        </Compare>
+        <Default>
+          <PartText x="154" y="340" width="170" height="35"><Text align="CENTER"><BitmapFont family="tp" size="35"><Template>--°C%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText>
+        </Default>
+      </Condition>
+    </Group>
+    <AnalogClock x="5" y="8" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><HourHand resource="hand_hour_sh" x="217" y="114" width="46" height="129" pivotX="0.50000" pivotY="0.97674"/><MinuteHand resource="hand_minute_sh" x="217" y="34" width="46" height="209" pivotX="0.50000" pivotY="0.98565"/></AnalogClock>
+    <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hand_hour" x="227" y="124" width="26" height="109" pivotX="0.50000" pivotY="1.06422"/><MinuteHand resource="hand_minute" x="227" y="44" width="26" height="189" pivotX="0.50000" pivotY="1.03704"/></AnalogClock>
+    <AnalogClock x="7" y="11" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><SecondHand resource="hand_second_sh" x="224" y="36" width="32" height="243" pivotX="0.50000" pivotY="0.83951"/></AnalogClock>
+    <AnalogClock x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><SecondHand resource="hand_second" x="234" y="46" width="12" height="223" pivotX="0.50000" pivotY="0.86996"/></AnalogClock>
+    <PartImage x="220" y="222" width="45" height="45"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="cap_sh"/></PartImage>
+    <PartImage x="226" y="226" width="29" height="29"><Image resource="cap"/></PartImage>
+  </Scene>
+</WatchFace>

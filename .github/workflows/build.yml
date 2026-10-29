@@ -23,6 +23,16 @@ jobs:
         with:
           gradle-version: '8.7'
 
+      - name: Validate watch faces (official Watch Face Format validator)
+        continue-on-error: true
+        run: |
+          git clone --depth 1 https://github.com/google/watchface.git /tmp/wff
+          (cd /tmp/wff/third_party/wff && ./gradlew -q :specification:validator:executable-jar)
+          for f in */src/main/res/raw/watchface.xml; do
+            echo "== $f"
+            java -jar /tmp/wff/third_party/wff/specification/validator/build/libs/wff-validator.jar 2 "$f"
+          done
+
       - name: Build debug APKs (all modules)
         run: gradle assembleDebug --no-daemon
 
