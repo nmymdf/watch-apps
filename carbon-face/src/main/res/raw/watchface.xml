@@ -357,8 +357,8 @@
         </ListOption>
         <ListOption id="green">
           <PartDraw x="199" y="105" width="84" height="12">
-          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#C8083213"/></RoundRectangle>
-          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#FF28E65A"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100"/></RoundRectangle>
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#C8081C11"/></RoundRectangle>
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#FF288250"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100"/></RoundRectangle>
           <RoundRectangle x="2.1" y="2" width="78.5" height="1.6" cornerRadiusX="0.8" cornerRadiusY="0.8"><Fill color="#AAC8FFFF"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100 - 4"/></RoundRectangle>
           </PartDraw>
         </ListOption>
