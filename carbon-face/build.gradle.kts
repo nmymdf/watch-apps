@@ -11,8 +11,8 @@ android {
         applicationId = "com.archiekuo.carbonface"
         minSdk = 34
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.1"
+        versionCode = 3
+        versionName = "1.2"
     }
 
     // 固定簽章：之後改版可以直接覆蓋安裝，不用先移除
