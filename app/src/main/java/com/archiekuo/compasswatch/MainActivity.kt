@@ -20,6 +20,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -91,36 +92,46 @@ private fun mkPaint(
 }
 
 private class Paints {
+    // ring: tick circles pushed out to the edge of the screen (design size 480)
     val minorTick = mkPaint("#5B616C", style = Paint.Style.STROKE).apply {
         strokeWidth = 10f
-        pathEffect = DashPathEffect(floatArrayOf(2f, 13.88f), 1f)
+        pathEffect = DashPathEffect(floatArrayOf(2f, 16.85f), 1f)
     }
     val majorTick = mkPaint("#E8EBF0", style = Paint.Style.STROKE).apply {
         strokeWidth = 16f
-        pathEffect = DashPathEffect(floatArrayOf(3f, 90.72f), 1.5f)
+        pathEffect = DashPathEffect(floatArrayOf(3f, 108.52f), 1.5f)
     }
-    val north = mkPaint("#FF6B3D", 32f, bold = true)
-    val cardinal = mkPaint("#E8EBF0", 26f)
-    val inter = mkPaint("#8A919C", 16f)
+    val minorPath = Path().apply { addCircle(240f, 240f, 216f, Path.Direction.CW) }
+    val majorPath = Path().apply { addCircle(240f, 240f, 213f, Path.Direction.CW) }
+
+    val north = mkPaint("#FF6B3D", 34f, bold = true)
+    val cardinal = mkPaint("#E8EBF0", 28f)
     val gold = mkPaint("#D4AF37")
-    val goldText = mkPaint("#D4AF37", 15f, skew = -0.22f)
-    val white = mkPaint("#FFFFFF")
-    val headingText = mkPaint("#FFFFFF", 64f, bold = true)
-    val dirText = mkPaint("#AEB4BF", 22f)
-    val labelText = mkPaint("#8A919C", 16f)
-    val baroText = mkPaint("#8A919C", 14f)
-    val altNum = mkPaint("#5AD1C8", 50f, bold = true, align = Paint.Align.LEFT)
-    val altUnit = mkPaint("#5AD1C8", 22f, align = Paint.Align.LEFT)
-    val line = mkPaint("#343A44", style = Paint.Style.STROKE).apply { strokeWidth = 2f }
+    val goldText = mkPaint("#D4AF37", 16f, skew = -0.22f)
     val disc = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         shader = RadialGradient(
-            240f, 222f, 170f,
-            android.graphics.Color.parseColor("#1A1D24"),
+            240f, 240f, 205f,
+            android.graphics.Color.parseColor("#15262A"),
             android.graphics.Color.BLACK,
             Shader.TileMode.CLAMP
         )
     }
     val bg = mkPaint("#000000")
+
+    val label1 = mkPaint("#8A919C", 22f)
+    val label2 = mkPaint("#8A919C", 18f)
+    val dirBig = mkPaint("#FFFFFF", 34f)
+    val altNum = mkPaint("#5AD1C8", 112f, bold = true, align = Paint.Align.LEFT)
+    val altUnit = mkPaint("#5AD1C8", 38f, align = Paint.Align.LEFT)
+    val degNum = mkPaint("#FFFFFF", 56f, bold = true, align = Paint.Align.LEFT)
+    val degDir = mkPaint("#AEB4BF", 24f, align = Paint.Align.LEFT)
+    val barNum = mkPaint("#7FB2FF", 56f, bold = true, align = Paint.Align.LEFT)
+    val barUnit = mkPaint("#7FB2FF", 22f, align = Paint.Align.LEFT)
+    val line = mkPaint("#343A44", style = Paint.Style.STROKE).apply { strokeWidth = 2f }
+    val dotOn = mkPaint("#FFFFFF")
+    val dotOff = mkPaint("#4A505A")
+
+    // calibration screen
     val title = mkPaint("#FFFFFF", 28f, bold = true)
     val caption = mkPaint("#AEB4BF", 20f)
     val percent = mkPaint("#FFFFFF", 38f, bold = true)
@@ -147,6 +158,28 @@ private fun drawMid(c: android.graphics.Canvas, text: String, x: Float, y: Float
     c.drawText(text, x, y - (fm.ascent + fm.descent) / 2f, p)
 }
 
+/** Draws "big" + "small" side by side, the pair centred on cx, shrunk if wider than maxW. */
+private fun drawPair(
+    c: android.graphics.Canvas, big: String, small: String,
+    pBig: Paint, pSmall: Paint, cx: Float, baseline: Float, gap: Float, maxW: Float
+) {
+    val sBig = pBig.textSize
+    val sSmall = pSmall.textSize
+    var w = pBig.measureText(big) + gap + pSmall.measureText(small)
+    var k = 1f
+    if (w > maxW) {
+        k = maxW / w
+        pBig.textSize = sBig * k
+        pSmall.textSize = sSmall * k
+        w = pBig.measureText(big) + gap * k + pSmall.measureText(small)
+    }
+    val x0 = cx - w / 2f
+    c.drawText(big, x0, baseline, pBig)
+    c.drawText(small, x0 + pBig.measureText(big) + gap * k, baseline, pSmall)
+    pBig.textSize = sBig
+    pSmall.textSize = sSmall
+}
+
 private fun figureEight(): Path = Path().apply {
     moveTo(240f, 215f)
     cubicTo(240f, 165f, 330f, 165f, 330f, 215f)
@@ -165,50 +198,44 @@ private fun calibrationProgress(acc: Int): Float = when (acc) {
     else -> 0.12f
 }
 
-private fun drawCompass(
-    c: android.graphics.Canvas, p: Paints, heading: Float,
-    altitude: Double?, pressure: Float?, version: String
-) {
+/** Shared by page 1 and page 2: dial background, rotating ring, N/E/S/W, gold pointer, author. */
+private fun drawDial(c: android.graphics.Canvas, p: Paints, heading: Float, version: String) {
     c.drawRect(0f, 0f, 480f, 480f, p.bg)
-    c.drawCircle(240f, 222f, 170f, p.disc)
+    c.drawCircle(240f, 240f, 205f, p.disc)
 
     c.save()
-    c.rotate(-heading, 240f, 222f)
-    val minor = Path().apply { addCircle(240f, 222f, 182f, Path.Direction.CW) }
-    val major = Path().apply { addCircle(240f, 222f, 179f, Path.Direction.CW) }
-    c.drawPath(minor, p.minorTick)
-    c.drawPath(major, p.majorTick)
-    val tri = Path().apply {
-        moveTo(240f, 35f); lineTo(230f, 17f); lineTo(250f, 17f); close()
-    }
-    c.drawPath(tri, p.north)
+    c.rotate(-heading, 240f, 240f)
+    c.drawPath(p.minorPath, p.minorTick)
+    c.drawPath(p.majorPath, p.majorTick)
     c.restore()
 
     val pointer = Path().apply {
-        moveTo(231f, 8f); lineTo(249f, 8f); lineTo(240f, 28f); close()
+        moveTo(231f, 1f); lineTo(249f, 1f); lineTo(240f, 17f); close()
     }
     c.drawPath(pointer, p.gold)
 
     val letters = arrayOf("N", "E", "S", "W")
     for (i in 0..3) {
         val phi = Math.toRadians((i * 90 - heading).toDouble())
-        val x = 240f + 150f * sin(phi).toFloat()
-        val y = 222f - 150f * cos(phi).toFloat()
+        val x = 240f + 178f * sin(phi).toFloat()
+        val y = 240f - 178f * cos(phi).toFloat()
         drawMid(c, letters[i], x, y, if (i == 0) p.north else p.cardinal)
     }
-    val inters = arrayOf("NE", "SE", "SW", "NW")
-    for (i in 0..3) {
-        val phi = Math.toRadians((45 + i * 90 - heading).toDouble())
-        val x = 240f + 150f * sin(phi).toFloat()
-        val y = 222f - 150f * cos(phi).toFloat()
-        drawMid(c, inters[i], x, y, p.inter)
-    }
 
-    val deg = heading.roundToInt() % 360
-    c.drawText("$deg°", 240f, 212f, p.headingText)
-    c.drawText(dirName(heading), 240f, 244f, p.dirText)
-    c.drawLine(206f, 262f, 274f, 262f, p.line)
-    c.drawText("海拔高度", 240f, 288f, p.labelText)
+    c.drawText("作者：ArchieKUO · v$version", 240f, 358f, p.goldText)
+}
+
+private fun drawDots(c: android.graphics.Canvas, p: Paints, page: Int) {
+    c.drawCircle(470f, 225f, 4f, if (page == 0) p.dotOn else p.dotOff)
+    c.drawCircle(470f, 255f, 4f, if (page == 1) p.dotOn else p.dotOff)
+}
+
+private fun drawPage1(
+    c: android.graphics.Canvas, p: Paints, heading: Float, altitude: Double?, version: String
+) {
+    drawDial(c, p, heading, version)
+
+    c.drawText("海拔高度", 240f, 146f, p.label1)
 
     val num = if (altitude != null) String.format(Locale.US, "%,.0f", altitude) else "--"
     p.altNum.color = if (altitude != null && altitude < 0) {
@@ -216,17 +243,27 @@ private fun drawCompass(
     } else {
         android.graphics.Color.parseColor("#5AD1C8")
     }
-    val wNum = p.altNum.measureText(num)
-    val wUnit = p.altUnit.measureText("m") + 4f
-    val x0 = 240f - (wNum + wUnit) / 2f
-    c.drawText(num, x0, 332f, p.altNum)
-    c.drawText("m", x0 + wNum + 4f, 332f, p.altUnit)
+    p.altUnit.color = p.altNum.color
+    drawPair(c, num, "m", p.altNum, p.altUnit, 240f, 262f, 6f, 330f)
 
-    val baro = if (pressure != null) {
-        "氣壓 " + String.format(Locale.US, "%,.0f", pressure) + " hPa"
-    } else "氣壓 --"
-    c.drawText(baro, 240f, 428f, p.baroText)
-    c.drawText("作者：ArchieKUO · v$version", 240f, 454f, p.goldText)
+    c.drawText(dirName(heading), 240f, 318f, p.dirBig)
+    drawDots(c, p, 0)
+}
+
+private fun drawPage2(
+    c: android.graphics.Canvas, p: Paints, heading: Float, pressure: Float?, version: String
+) {
+    drawDial(c, p, heading, version)
+
+    c.drawText("方向角度", 240f, 132f, p.label2)
+    val deg = heading.roundToInt() % 360
+    drawPair(c, "$deg°", dirName(heading), p.degNum, p.degDir, 240f, 190f, 10f, 260f)
+    c.drawLine(206f, 214f, 274f, 214f, p.line)
+
+    c.drawText("氣壓", 240f, 248f, p.label2)
+    val pr = if (pressure != null) String.format(Locale.US, "%,.0f", pressure) else "--"
+    drawPair(c, pr, "hPa", p.barNum, p.barUnit, 240f, 310f, 6f, 260f)
+    drawDots(c, p, 1)
 }
 
 private fun drawCalibrate(
@@ -259,17 +296,33 @@ fun AppRoot(st: CompassState) {
     val version = remember {
         runCatching {
             ctx.packageManager.getPackageInfo(ctx.packageName, 0).versionName
-        }.getOrNull() ?: "0.1"
+        }.getOrNull() ?: "0.2"
     }
     var px by remember { mutableStateOf(IntSize.Zero) }
 
-    BackHandler(enabled = st.screen == Screen.Calibrate) { st.screen = Screen.Compass }
+    BackHandler(enabled = st.screen != Screen.Compass) { st.screen = Screen.Compass }
 
     Canvas(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
             .onSizeChanged { px = it }
+            .pointerInput(Unit) {
+                // push up = next page, pull down = back to page 1
+                var total = 0f
+                detectVerticalDragGestures(
+                    onDragStart = { total = 0f },
+                    onDragEnd = {
+                        if (total < -50f && st.screen == Screen.Compass) {
+                            st.screen = Screen.Details
+                        } else if (total > 50f && st.screen == Screen.Details) {
+                            st.screen = Screen.Compass
+                        }
+                    },
+                    onDragCancel = { total = 0f },
+                    onVerticalDrag = { _, dy -> total += dy }
+                )
+            }
             .pointerInput(Unit) {
                 detectTapGestures { off ->
                     val s = min(px.width, px.height) / 480f
@@ -280,8 +333,9 @@ fun AppRoot(st: CompassState) {
                     val dy = (off.y - oy) / s
                     when (st.screen) {
                         Screen.Compass -> {
-                            if (hypot(dx - 240f, dy - 222f) < 150f) st.screen = Screen.Calibrate
+                            if (hypot(dx - 240f, dy - 240f) < 150f) st.screen = Screen.Calibrate
                         }
+                        Screen.Details -> {}
                         Screen.Calibrate -> {
                             if (BUTTON_RECT.contains(dx, dy)) st.screen = Screen.Compass
                         }
@@ -298,10 +352,9 @@ fun AppRoot(st: CompassState) {
             nc.translate(ox, oy)
             nc.scale(s, s)
             when (st.screen) {
-                Screen.Compass ->
-                    drawCompass(nc, paints, st.heading, st.altitude, st.pressure, version)
-                Screen.Calibrate ->
-                    drawCalibrate(nc, paints, st.accuracy, version)
+                Screen.Compass -> drawPage1(nc, paints, st.heading, st.altitude, version)
+                Screen.Details -> drawPage2(nc, paints, st.heading, st.pressure, version)
+                Screen.Calibrate -> drawCalibrate(nc, paints, st.accuracy, version)
             }
             nc.restore()
         }

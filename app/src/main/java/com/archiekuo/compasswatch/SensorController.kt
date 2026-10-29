@@ -24,7 +24,7 @@ import kotlin.math.cos
 import kotlin.math.pow
 import kotlin.math.sin
 
-enum class Screen { Compass, Calibrate }
+enum class Screen { Compass, Details, Calibrate }
 
 class CompassState {
     var heading by mutableFloatStateOf(0f)
