@@ -2,7 +2,173 @@
 <WatchFace width="480" height="480" clipShape="CIRCLE">
   <Metadata key="CLOCK_TYPE" value="ANALOG"/>
   <Metadata key="PREVIEW_TIME" value="10:08:36"/>
+  <UserConfigurations>
+    <ListConfiguration id="color" displayName="color_label" defaultValue="blue">
+      <ListOption id="blue" displayName="c_blue" icon="ic_blue"/>
+      <ListOption id="orange" displayName="c_orange" icon="ic_orange"/>
+      <ListOption id="green" displayName="c_green" icon="ic_green"/>
+      <ListOption id="white" displayName="c_white" icon="ic_white"/>
+      <ListOption id="champ" displayName="c_champ" icon="ic_champ"/>
+      <ListOption id="red" displayName="c_red" icon="ic_red"/>
+    </ListConfiguration>
+  </UserConfigurations>
   <BitmapFonts>
+    <BitmapFont name="btblue">
+      <Character name="0" resource="f_btblue_d0" width="11" height="26"/>
+      <Character name="1" resource="f_btblue_d1" width="11" height="26"/>
+      <Character name="2" resource="f_btblue_d2" width="11" height="26"/>
+      <Character name="3" resource="f_btblue_d3" width="11" height="26"/>
+      <Character name="4" resource="f_btblue_d4" width="11" height="26"/>
+      <Character name="5" resource="f_btblue_d5" width="11" height="26"/>
+      <Character name="6" resource="f_btblue_d6" width="11" height="26"/>
+      <Character name="7" resource="f_btblue_d7" width="11" height="26"/>
+      <Character name="8" resource="f_btblue_d8" width="11" height="26"/>
+      <Character name="9" resource="f_btblue_d9" width="11" height="26"/>
+      <Character name="p" resource="f_btblue_pct" width="14" height="26"/>
+    </BitmapFont>
+    <BitmapFont name="glblue">
+      <Character name="0" resource="f_glblue_d0" width="9" height="25"/>
+      <Character name="1" resource="f_glblue_d1" width="9" height="25"/>
+      <Character name="2" resource="f_glblue_d2" width="9" height="25"/>
+      <Character name="3" resource="f_glblue_d3" width="9" height="25"/>
+      <Character name="4" resource="f_glblue_d4" width="9" height="25"/>
+      <Character name="5" resource="f_glblue_d5" width="9" height="25"/>
+      <Character name="6" resource="f_glblue_d6" width="9" height="25"/>
+      <Character name="7" resource="f_glblue_d7" width="9" height="25"/>
+      <Character name="8" resource="f_glblue_d8" width="9" height="25"/>
+      <Character name="9" resource="f_glblue_d9" width="9" height="25"/>
+      <Character name="," resource="f_glblue_comma" width="4" height="25"/>
+    </BitmapFont>
+    <BitmapFont name="btorange">
+      <Character name="0" resource="f_btorange_d0" width="11" height="26"/>
+      <Character name="1" resource="f_btorange_d1" width="11" height="26"/>
+      <Character name="2" resource="f_btorange_d2" width="11" height="26"/>
+      <Character name="3" resource="f_btorange_d3" width="11" height="26"/>
+      <Character name="4" resource="f_btorange_d4" width="11" height="26"/>
+      <Character name="5" resource="f_btorange_d5" width="11" height="26"/>
+      <Character name="6" resource="f_btorange_d6" width="11" height="26"/>
+      <Character name="7" resource="f_btorange_d7" width="11" height="26"/>
+      <Character name="8" resource="f_btorange_d8" width="11" height="26"/>
+      <Character name="9" resource="f_btorange_d9" width="11" height="26"/>
+      <Character name="p" resource="f_btorange_pct" width="14" height="26"/>
+    </BitmapFont>
+    <BitmapFont name="glorange">
+      <Character name="0" resource="f_glorange_d0" width="9" height="25"/>
+      <Character name="1" resource="f_glorange_d1" width="9" height="25"/>
+      <Character name="2" resource="f_glorange_d2" width="9" height="25"/>
+      <Character name="3" resource="f_glorange_d3" width="9" height="25"/>
+      <Character name="4" resource="f_glorange_d4" width="9" height="25"/>
+      <Character name="5" resource="f_glorange_d5" width="9" height="25"/>
+      <Character name="6" resource="f_glorange_d6" width="9" height="25"/>
+      <Character name="7" resource="f_glorange_d7" width="9" height="25"/>
+      <Character name="8" resource="f_glorange_d8" width="9" height="25"/>
+      <Character name="9" resource="f_glorange_d9" width="9" height="25"/>
+      <Character name="," resource="f_glorange_comma" width="4" height="25"/>
+    </BitmapFont>
+    <BitmapFont name="btgreen">
+      <Character name="0" resource="f_btgreen_d0" width="11" height="26"/>
+      <Character name="1" resource="f_btgreen_d1" width="11" height="26"/>
+      <Character name="2" resource="f_btgreen_d2" width="11" height="26"/>
+      <Character name="3" resource="f_btgreen_d3" width="11" height="26"/>
+      <Character name="4" resource="f_btgreen_d4" width="11" height="26"/>
+      <Character name="5" resource="f_btgreen_d5" width="11" height="26"/>
+      <Character name="6" resource="f_btgreen_d6" width="11" height="26"/>
+      <Character name="7" resource="f_btgreen_d7" width="11" height="26"/>
+      <Character name="8" resource="f_btgreen_d8" width="11" height="26"/>
+      <Character name="9" resource="f_btgreen_d9" width="11" height="26"/>
+      <Character name="p" resource="f_btgreen_pct" width="14" height="26"/>
+    </BitmapFont>
+    <BitmapFont name="glgreen">
+      <Character name="0" resource="f_glgreen_d0" width="9" height="25"/>
+      <Character name="1" resource="f_glgreen_d1" width="9" height="25"/>
+      <Character name="2" resource="f_glgreen_d2" width="9" height="25"/>
+      <Character name="3" resource="f_glgreen_d3" width="9" height="25"/>
+      <Character name="4" resource="f_glgreen_d4" width="9" height="25"/>
+      <Character name="5" resource="f_glgreen_d5" width="9" height="25"/>
+      <Character name="6" resource="f_glgreen_d6" width="9" height="25"/>
+      <Character name="7" resource="f_glgreen_d7" width="9" height="25"/>
+      <Character name="8" resource="f_glgreen_d8" width="9" height="25"/>
+      <Character name="9" resource="f_glgreen_d9" width="9" height="25"/>
+      <Character name="," resource="f_glgreen_comma" width="4" height="25"/>
+    </BitmapFont>
+    <BitmapFont name="btwhite">
+      <Character name="0" resource="f_btwhite_d0" width="11" height="26"/>
+      <Character name="1" resource="f_btwhite_d1" width="11" height="26"/>
+      <Character name="2" resource="f_btwhite_d2" width="11" height="26"/>
+      <Character name="3" resource="f_btwhite_d3" width="11" height="26"/>
+      <Character name="4" resource="f_btwhite_d4" width="11" height="26"/>
+      <Character name="5" resource="f_btwhite_d5" width="11" height="26"/>
+      <Character name="6" resource="f_btwhite_d6" width="11" height="26"/>
+      <Character name="7" resource="f_btwhite_d7" width="11" height="26"/>
+      <Character name="8" resource="f_btwhite_d8" width="11" height="26"/>
+      <Character name="9" resource="f_btwhite_d9" width="11" height="26"/>
+      <Character name="p" resource="f_btwhite_pct" width="14" height="26"/>
+    </BitmapFont>
+    <BitmapFont name="glwhite">
+      <Character name="0" resource="f_glwhite_d0" width="9" height="25"/>
+      <Character name="1" resource="f_glwhite_d1" width="9" height="25"/>
+      <Character name="2" resource="f_glwhite_d2" width="9" height="25"/>
+      <Character name="3" resource="f_glwhite_d3" width="9" height="25"/>
+      <Character name="4" resource="f_glwhite_d4" width="9" height="25"/>
+      <Character name="5" resource="f_glwhite_d5" width="9" height="25"/>
+      <Character name="6" resource="f_glwhite_d6" width="9" height="25"/>
+      <Character name="7" resource="f_glwhite_d7" width="9" height="25"/>
+      <Character name="8" resource="f_glwhite_d8" width="9" height="25"/>
+      <Character name="9" resource="f_glwhite_d9" width="9" height="25"/>
+      <Character name="," resource="f_glwhite_comma" width="4" height="25"/>
+    </BitmapFont>
+    <BitmapFont name="btchamp">
+      <Character name="0" resource="f_btchamp_d0" width="11" height="26"/>
+      <Character name="1" resource="f_btchamp_d1" width="11" height="26"/>
+      <Character name="2" resource="f_btchamp_d2" width="11" height="26"/>
+      <Character name="3" resource="f_btchamp_d3" width="11" height="26"/>
+      <Character name="4" resource="f_btchamp_d4" width="11" height="26"/>
+      <Character name="5" resource="f_btchamp_d5" width="11" height="26"/>
+      <Character name="6" resource="f_btchamp_d6" width="11" height="26"/>
+      <Character name="7" resource="f_btchamp_d7" width="11" height="26"/>
+      <Character name="8" resource="f_btchamp_d8" width="11" height="26"/>
+      <Character name="9" resource="f_btchamp_d9" width="11" height="26"/>
+      <Character name="p" resource="f_btchamp_pct" width="14" height="26"/>
+    </BitmapFont>
+    <BitmapFont name="glchamp">
+      <Character name="0" resource="f_glchamp_d0" width="9" height="25"/>
+      <Character name="1" resource="f_glchamp_d1" width="9" height="25"/>
+      <Character name="2" resource="f_glchamp_d2" width="9" height="25"/>
+      <Character name="3" resource="f_glchamp_d3" width="9" height="25"/>
+      <Character name="4" resource="f_glchamp_d4" width="9" height="25"/>
+      <Character name="5" resource="f_glchamp_d5" width="9" height="25"/>
+      <Character name="6" resource="f_glchamp_d6" width="9" height="25"/>
+      <Character name="7" resource="f_glchamp_d7" width="9" height="25"/>
+      <Character name="8" resource="f_glchamp_d8" width="9" height="25"/>
+      <Character name="9" resource="f_glchamp_d9" width="9" height="25"/>
+      <Character name="," resource="f_glchamp_comma" width="4" height="25"/>
+    </BitmapFont>
+    <BitmapFont name="btred">
+      <Character name="0" resource="f_btred_d0" width="11" height="26"/>
+      <Character name="1" resource="f_btred_d1" width="11" height="26"/>
+      <Character name="2" resource="f_btred_d2" width="11" height="26"/>
+      <Character name="3" resource="f_btred_d3" width="11" height="26"/>
+      <Character name="4" resource="f_btred_d4" width="11" height="26"/>
+      <Character name="5" resource="f_btred_d5" width="11" height="26"/>
+      <Character name="6" resource="f_btred_d6" width="11" height="26"/>
+      <Character name="7" resource="f_btred_d7" width="11" height="26"/>
+      <Character name="8" resource="f_btred_d8" width="11" height="26"/>
+      <Character name="9" resource="f_btred_d9" width="11" height="26"/>
+      <Character name="p" resource="f_btred_pct" width="14" height="26"/>
+    </BitmapFont>
+    <BitmapFont name="glred">
+      <Character name="0" resource="f_glred_d0" width="9" height="25"/>
+      <Character name="1" resource="f_glred_d1" width="9" height="25"/>
+      <Character name="2" resource="f_glred_d2" width="9" height="25"/>
+      <Character name="3" resource="f_glred_d3" width="9" height="25"/>
+      <Character name="4" resource="f_glred_d4" width="9" height="25"/>
+      <Character name="5" resource="f_glred_d5" width="9" height="25"/>
+      <Character name="6" resource="f_glred_d6" width="9" height="25"/>
+      <Character name="7" resource="f_glred_d7" width="9" height="25"/>
+      <Character name="8" resource="f_glred_d8" width="9" height="25"/>
+      <Character name="9" resource="f_glred_d9" width="9" height="25"/>
+      <Character name="," resource="f_glred_comma" width="4" height="25"/>
+    </BitmapFont>
     <BitmapFont name="dt">
       <Character name="0" resource="f_dt_d0" width="15" height="36"/>
       <Character name="1" resource="f_dt_d1" width="15" height="36"/>
@@ -133,15 +299,111 @@
     </BitmapFont>
   </BitmapFonts>
   <Scene backgroundColor="#FF000000">
-    <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg"/></PartImage>
-    <PartImage x="0" y="0" width="480" height="480" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_bg"/></PartImage>
+    <ListConfiguration id="color">
+      <ListOption id="blue">
+        <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg_blue"/></PartImage>
+      </ListOption>
+      <ListOption id="orange">
+        <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg_orange"/></PartImage>
+      </ListOption>
+      <ListOption id="green">
+        <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg_green"/></PartImage>
+      </ListOption>
+      <ListOption id="white">
+        <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg_white"/></PartImage>
+      </ListOption>
+      <ListOption id="champ">
+        <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg_champ"/></PartImage>
+      </ListOption>
+      <ListOption id="red">
+        <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg_red"/></PartImage>
+      </ListOption>
+    </ListConfiguration>
+    <ListConfiguration id="color">
+      <ListOption id="blue">
+        <PartImage x="0" y="0" width="480" height="480" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_blue"/></PartImage>
+      </ListOption>
+      <ListOption id="orange">
+        <PartImage x="0" y="0" width="480" height="480" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_orange"/></PartImage>
+      </ListOption>
+      <ListOption id="green">
+        <PartImage x="0" y="0" width="480" height="480" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_green"/></PartImage>
+      </ListOption>
+      <ListOption id="white">
+        <PartImage x="0" y="0" width="480" height="480" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_white"/></PartImage>
+      </ListOption>
+      <ListOption id="champ">
+        <PartImage x="0" y="0" width="480" height="480" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_champ"/></PartImage>
+      </ListOption>
+      <ListOption id="red">
+        <PartImage x="0" y="0" width="480" height="480" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_red"/></PartImage>
+      </ListOption>
+    </ListConfiguration>
     <Group name="data" x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/>
-      <PartDraw x="199" y="105" width="84" height="12">
-        <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#C8062834"/></RoundRectangle>
-        <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#FF00ECFA"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100"/></RoundRectangle>
-        <RoundRectangle x="2.1" y="2" width="78.5" height="1.6" cornerRadiusX="0.8" cornerRadiusY="0.8"><Fill color="#AAC8FFFF"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100 - 4"/></RoundRectangle>
-      </PartDraw>
-      <PartText x="227" y="79" width="90" height="26"><Text align="START"><BitmapFont family="bt" size="26"><Template>%sp<Parameter expression="[BATTERY_PERCENT]"/></Template></BitmapFont></Text></PartText>
+      <ListConfiguration id="color">
+        <ListOption id="blue">
+          <PartDraw x="199" y="105" width="84" height="12">
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#C8003337"/></RoundRectangle>
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#FF00ECFA"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100"/></RoundRectangle>
+          <RoundRectangle x="2.1" y="2" width="78.5" height="1.6" cornerRadiusX="0.8" cornerRadiusY="0.8"><Fill color="#AAC8FFFF"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100 - 4"/></RoundRectangle>
+          </PartDraw>
+        </ListOption>
+        <ListOption id="orange">
+          <PartDraw x="199" y="105" width="84" height="12">
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#C8381E04"/></RoundRectangle>
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#FFFF8C14"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100"/></RoundRectangle>
+          <RoundRectangle x="2.1" y="2" width="78.5" height="1.6" cornerRadiusX="0.8" cornerRadiusY="0.8"><Fill color="#AAC8FFFF"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100 - 4"/></RoundRectangle>
+          </PartDraw>
+        </ListOption>
+        <ListOption id="green">
+          <PartDraw x="199" y="105" width="84" height="12">
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#C8083213"/></RoundRectangle>
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#FF28E65A"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100"/></RoundRectangle>
+          <RoundRectangle x="2.1" y="2" width="78.5" height="1.6" cornerRadiusX="0.8" cornerRadiusY="0.8"><Fill color="#AAC8FFFF"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100 - 4"/></RoundRectangle>
+          </PartDraw>
+        </ListOption>
+        <ListOption id="white">
+          <PartDraw x="199" y="105" width="84" height="12">
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#C8333435"/></RoundRectangle>
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#FFEBF0F5"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100"/></RoundRectangle>
+          <RoundRectangle x="2.1" y="2" width="78.5" height="1.6" cornerRadiusX="0.8" cornerRadiusY="0.8"><Fill color="#AAC8FFFF"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100 - 4"/></RoundRectangle>
+          </PartDraw>
+        </ListOption>
+        <ListOption id="champ">
+          <PartDraw x="199" y="105" width="84" height="12">
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#C8332D21"/></RoundRectangle>
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#FFEBCD96"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100"/></RoundRectangle>
+          <RoundRectangle x="2.1" y="2" width="78.5" height="1.6" cornerRadiusX="0.8" cornerRadiusY="0.8"><Fill color="#AAC8FFFF"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100 - 4"/></RoundRectangle>
+          </PartDraw>
+        </ListOption>
+        <ListOption id="red">
+          <PartDraw x="199" y="105" width="84" height="12">
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#C8330408"/></RoundRectangle>
+          <RoundRectangle x="0.1" y="0.8" width="82.5" height="9.3" cornerRadiusX="4.7" cornerRadiusY="4.7"><Fill color="#FFEB1428"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100"/></RoundRectangle>
+          <RoundRectangle x="2.1" y="2" width="78.5" height="1.6" cornerRadiusX="0.8" cornerRadiusY="0.8"><Fill color="#AAC8FFFF"/><Transform target="width" value="clamp([BATTERY_PERCENT], 6, 100) * 82.5 / 100 - 4"/></RoundRectangle>
+          </PartDraw>
+        </ListOption>
+      </ListConfiguration>
+      <ListConfiguration id="color">
+        <ListOption id="blue">
+          <PartText x="227" y="79" width="90" height="26"><Text align="START"><BitmapFont family="btblue" size="26"><Template>%sp<Parameter expression="[BATTERY_PERCENT]"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+        <ListOption id="orange">
+          <PartText x="227" y="79" width="90" height="26"><Text align="START"><BitmapFont family="btorange" size="26"><Template>%sp<Parameter expression="[BATTERY_PERCENT]"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+        <ListOption id="green">
+          <PartText x="227" y="79" width="90" height="26"><Text align="START"><BitmapFont family="btgreen" size="26"><Template>%sp<Parameter expression="[BATTERY_PERCENT]"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+        <ListOption id="white">
+          <PartText x="227" y="79" width="90" height="26"><Text align="START"><BitmapFont family="btwhite" size="26"><Template>%sp<Parameter expression="[BATTERY_PERCENT]"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+        <ListOption id="champ">
+          <PartText x="227" y="79" width="90" height="26"><Text align="START"><BitmapFont family="btchamp" size="26"><Template>%sp<Parameter expression="[BATTERY_PERCENT]"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+        <ListOption id="red">
+          <PartText x="227" y="79" width="90" height="26"><Text align="START"><BitmapFont family="btred" size="26"><Template>%sp<Parameter expression="[BATTERY_PERCENT]"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+      </ListConfiguration>
       <Condition><Expressions><Expression name="wd0"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 0]]></Expression><Expression name="wd1"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 1]]></Expression><Expression name="wd2"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 2]]></Expression><Expression name="wd3"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 3]]></Expression><Expression name="wd4"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 4]]></Expression><Expression name="wd5"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 5]]></Expression><Expression name="wd6"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 6]]></Expression></Expressions>
         <Compare expression="wd0">
           <PartText x="156" y="116" width="170" height="36"><Text align="CENTER"><BitmapFont family="dt" size="36"><Template>SUN %s<Parameter expression="[DAY]"/></Template></BitmapFont></Text></PartText>
@@ -214,7 +476,26 @@
           <PartText x="45" y="225" width="170" height="40"><Text align="CENTER"><BitmapFont family="st" size="40"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_COUNT])"/></Template></BitmapFont></Text></PartText>
         </Default>
       </Condition>
-      <PartText x="47" y="260" width="170" height="25"><Text align="CENTER"><BitmapFont family="gl" size="25"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_GOAL])"/></Template></BitmapFont></Text></PartText>
+      <ListConfiguration id="color">
+        <ListOption id="blue">
+          <PartText x="47" y="260" width="170" height="25"><Text align="CENTER"><BitmapFont family="glblue" size="25"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_GOAL])"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+        <ListOption id="orange">
+          <PartText x="47" y="260" width="170" height="25"><Text align="CENTER"><BitmapFont family="glorange" size="25"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_GOAL])"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+        <ListOption id="green">
+          <PartText x="47" y="260" width="170" height="25"><Text align="CENTER"><BitmapFont family="glgreen" size="25"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_GOAL])"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+        <ListOption id="white">
+          <PartText x="47" y="260" width="170" height="25"><Text align="CENTER"><BitmapFont family="glwhite" size="25"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_GOAL])"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+        <ListOption id="champ">
+          <PartText x="47" y="260" width="170" height="25"><Text align="CENTER"><BitmapFont family="glchamp" size="25"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_GOAL])"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+        <ListOption id="red">
+          <PartText x="47" y="260" width="170" height="25"><Text align="CENTER"><BitmapFont family="glred" size="25"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_GOAL])"/></Template></BitmapFont></Text></PartText>
+        </ListOption>
+      </ListConfiguration>
       <Condition><Expressions><Expression name="hrok"><![CDATA[[HEART_RATE] > 0]]></Expression></Expressions>
         <Compare expression="hrok">
           <PartText x="270" y="231" width="170" height="42"><Text align="CENTER"><BitmapFont family="hr" size="42"><Template>%s<Parameter expression="[HEART_RATE]"/></Template></BitmapFont></Text></PartText>
@@ -247,7 +528,26 @@
       </Condition>
     </Group>
     <AnalogClock x="5" y="8" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><HourHand resource="hand_hour_sh" x="215" y="93" width="50" height="148" pivotX="0.50000" pivotY="0.99324"/><MinuteHand resource="hand_minute_sh" x="216" y="-2" width="48" height="243" pivotX="0.50000" pivotY="0.99588"/></AnalogClock>
-    <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hand_hour" x="225" y="103" width="30" height="128" pivotX="0.50000" pivotY="1.07031"/><MinuteHand resource="hand_minute" x="226" y="8" width="28" height="223" pivotX="0.50000" pivotY="1.04036"/></AnalogClock>
+    <ListConfiguration id="color">
+      <ListOption id="blue">
+        <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hand_hour_blue" x="225" y="103" width="30" height="128" pivotX="0.50000" pivotY="1.07031"/><MinuteHand resource="hand_minute_blue" x="226" y="8" width="28" height="223" pivotX="0.50000" pivotY="1.04036"/></AnalogClock>
+      </ListOption>
+      <ListOption id="orange">
+        <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hand_hour_orange" x="225" y="103" width="30" height="128" pivotX="0.50000" pivotY="1.07031"/><MinuteHand resource="hand_minute_orange" x="226" y="8" width="28" height="223" pivotX="0.50000" pivotY="1.04036"/></AnalogClock>
+      </ListOption>
+      <ListOption id="green">
+        <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hand_hour_green" x="225" y="103" width="30" height="128" pivotX="0.50000" pivotY="1.07031"/><MinuteHand resource="hand_minute_green" x="226" y="8" width="28" height="223" pivotX="0.50000" pivotY="1.04036"/></AnalogClock>
+      </ListOption>
+      <ListOption id="white">
+        <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hand_hour_white" x="225" y="103" width="30" height="128" pivotX="0.50000" pivotY="1.07031"/><MinuteHand resource="hand_minute_white" x="226" y="8" width="28" height="223" pivotX="0.50000" pivotY="1.04036"/></AnalogClock>
+      </ListOption>
+      <ListOption id="champ">
+        <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hand_hour_champ" x="225" y="103" width="30" height="128" pivotX="0.50000" pivotY="1.07031"/><MinuteHand resource="hand_minute_champ" x="226" y="8" width="28" height="223" pivotX="0.50000" pivotY="1.04036"/></AnalogClock>
+      </ListOption>
+      <ListOption id="red">
+        <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hand_hour_red" x="225" y="103" width="30" height="128" pivotX="0.50000" pivotY="1.07031"/><MinuteHand resource="hand_minute_red" x="226" y="8" width="28" height="223" pivotX="0.50000" pivotY="1.04036"/></AnalogClock>
+      </ListOption>
+    </ListConfiguration>
     <AnalogClock x="7" y="11" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><SecondHand resource="hand_second_sh" x="224" y="1" width="32" height="283" pivotX="0.50000" pivotY="0.84452"/></AnalogClock>
     <AnalogClock x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><SecondHand resource="hand_second" x="234" y="11" width="12" height="263" pivotX="0.50000" pivotY="0.87072"/></AnalogClock>
     <PartImage x="218" y="220" width="50" height="50"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="cap_sh"/></PartImage>
