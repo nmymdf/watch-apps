@@ -527,6 +527,26 @@
         </Default>
       </Condition>
     </Group>
+    <ListConfiguration id="color">
+      <ListOption id="blue">
+        <PartImage x="97" y="337" width="46" height="46"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="gbtn_blue"/></PartImage>
+      </ListOption>
+      <ListOption id="orange">
+        <PartImage x="97" y="337" width="46" height="46"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="gbtn_orange"/></PartImage>
+      </ListOption>
+      <ListOption id="green">
+        <PartImage x="97" y="337" width="46" height="46"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="gbtn_green"/></PartImage>
+      </ListOption>
+      <ListOption id="white">
+        <PartImage x="97" y="337" width="46" height="46"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="gbtn_white"/></PartImage>
+      </ListOption>
+      <ListOption id="champ">
+        <PartImage x="97" y="337" width="46" height="46"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="gbtn_champ"/></PartImage>
+      </ListOption>
+      <ListOption id="red">
+        <PartImage x="97" y="337" width="46" height="46"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="gbtn_red"/></PartImage>
+      </ListOption>
+    </ListConfiguration>
     <AnalogClock x="5" y="8" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><HourHand resource="hand_hour_sh" x="215" y="93" width="50" height="148" pivotX="0.50000" pivotY="0.99324"/><MinuteHand resource="hand_minute_sh" x="216" y="-2" width="48" height="243" pivotX="0.50000" pivotY="0.99588"/></AnalogClock>
     <ListConfiguration id="color">
       <ListOption id="blue">
@@ -557,5 +577,6 @@
     <Group name="tap_steps" x="74" y="188" width="110" height="110"><Variant mode="AMBIENT" target="alpha" value="0"/><Launch target="com.samsung.android.wear.shealth/com.samsung.android.wear.shealth.app.steps.view.StepsActivity"/><PartDraw x="0" y="0" width="110" height="110"><Rectangle x="0" y="0" width="110" height="110"><Fill color="#01000000"/></Rectangle></PartDraw></Group>
     <Group name="tap_heart" x="296" y="188" width="110" height="110"><Variant mode="AMBIENT" target="alpha" value="0"/><Launch target="HEALTH_HEART_RATE"/><PartDraw x="0" y="0" width="110" height="110"><Rectangle x="0" y="0" width="110" height="110"><Fill color="#01000000"/></Rectangle></PartDraw></Group>
     <Group name="tap_weather" x="180" y="295" width="110" height="110"><Variant mode="AMBIENT" target="alpha" value="0"/><Launch target="com.samsung.android.watch.weather/com.samsung.android.watch.weather.ui.WeatherActivity"/><PartDraw x="0" y="0" width="110" height="110"><Rectangle x="0" y="0" width="110" height="110"><Fill color="#01000000"/></Rectangle></PartDraw></Group>
+    <Group name="tap_gemini" x="102" y="342" width="36" height="36"><Variant mode="AMBIENT" target="alpha" value="0"/><Launch target="com.google.android.wearable.assistant/com.google.android.wearable.assistant.JokerActivity"/><PartDraw x="0" y="0" width="36" height="36"><Rectangle x="0" y="0" width="36" height="36"><Fill color="#01000000"/></Rectangle></PartDraw></Group>
   </Scene>
 </WatchFace>
