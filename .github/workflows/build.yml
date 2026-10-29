@@ -29,8 +29,8 @@ jobs:
           git clone --depth 1 https://github.com/google/watchface.git /tmp/wff
           (cd /tmp/wff/third_party/wff && ./gradlew -q :specification:validator:executable-jar)
           for f in */src/main/res/raw/watchface.xml; do
-            echo "== $f"
-            java -jar /tmp/wff/third_party/wff/specification/validator/build/libs/wff-validator.jar 2 "$f"
+            echo "== $f" | tee -a /tmp/wff-report.txt
+            java -jar /tmp/wff/third_party/wff/specification/validator/build/libs/wff-validator.jar 2 "$f" 2>&1 | tee -a /tmp/wff-report.txt
           done
 
       - name: Build debug APKs (all modules)
@@ -59,6 +59,8 @@ jobs:
             git rm -rf . >/dev/null 2>&1 || true
           fi
           cp /tmp/out/*.apk .
+          cp /tmp/wff-report.txt . 2>/dev/null || true
           git add ./*.apk
+          git add wff-report.txt 2>/dev/null || true
           git commit -m "APKs from ${GITHUB_SHA::7}" || echo "nothing to commit"
           git push origin HEAD:apk
