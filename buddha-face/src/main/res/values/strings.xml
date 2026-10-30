@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">佛像錶面</string>
+    <string name="color_label">顏色</string>
+    <string name="c_gold">金色</string>
+    <string name="c_tech">科技青</string>
+    <string name="c_silver">銀白</string>
+</resources>

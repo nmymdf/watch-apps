@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WatchFace width="480" height="480" clipShape="CIRCLE">
+  <Metadata key="CLOCK_TYPE" value="ANALOG"/>
+  <Metadata key="PREVIEW_TIME" value="10:08:36"/>
+  <UserConfigurations>
+    <ListConfiguration id="color" displayName="color_label" defaultValue="gold">
+      <ListOption id="gold" displayName="c_gold" icon="ic_gold"/>
+      <ListOption id="tech" displayName="c_tech" icon="ic_tech"/>
+      <ListOption id="silver" displayName="c_silver" icon="ic_silver"/>
+    </ListConfiguration>
+  </UserConfigurations>
+  <BitmapFonts>
+    <BitmapFont name="num">
+      <Character name="0" resource="n_d0" width="18" height="37"/>
+      <Character name="1" resource="n_d1" width="13" height="37"/>
+      <Character name="2" resource="n_d2" width="17" height="37"/>
+      <Character name="3" resource="n_d3" width="17" height="37"/>
+      <Character name="4" resource="n_d4" width="18" height="37"/>
+      <Character name="5" resource="n_d5" width="17" height="37"/>
+      <Character name="6" resource="n_d6" width="18" height="37"/>
+      <Character name="7" resource="n_d7" width="15" height="37"/>
+      <Character name="8" resource="n_d8" width="18" height="37"/>
+      <Character name="9" resource="n_d9" width="18" height="37"/>
+      <Character name="," resource="n_comma" width="10" height="37"/>
+      <Character name="-" resource="n_minus" width="12" height="37"/>
+    </BitmapFont>
+  </BitmapFonts>
+  <Scene backgroundColor="#FF000000">
+    <ListConfiguration id="color">
+      <ListOption id="gold">
+        <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg_gold"/></PartImage>
+      </ListOption>
+      <ListOption id="tech">
+        <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg_tech"/></PartImage>
+      </ListOption>
+      <ListOption id="silver">
+        <PartImage x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="bg_silver"/></PartImage>
+      </ListOption>
+    </ListConfiguration>
+    <ListConfiguration id="color">
+      <ListOption id="gold">
+        <PartImage alpha="0" x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_gold"/></PartImage>
+      </ListOption>
+      <ListOption id="tech">
+        <PartImage alpha="0" x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_tech"/></PartImage>
+      </ListOption>
+      <ListOption id="silver">
+        <PartImage alpha="0" x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="255"/><Image resource="aod_silver"/></PartImage>
+      </ListOption>
+    </ListConfiguration>
+    <Group name="data" x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/>
+      <Condition><Expressions><Expression name="wd0"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 0]]></Expression><Expression name="wd1"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 1]]></Expression><Expression name="wd2"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 2]]></Expression><Expression name="wd3"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 3]]></Expression><Expression name="wd4"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 4]]></Expression><Expression name="wd5"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 5]]></Expression><Expression name="wd6"><![CDATA[round([DAY] + ([YEAR] - floor((14 - [MONTH]) / 12)) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 4) - floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 100) + floor(([YEAR] - floor((14 - [MONTH]) / 12)) / 400) + floor(31 * ([MONTH] + 12 * floor((14 - [MONTH]) / 12) - 2) / 12)) % 7 == 6]]></Expression></Expressions>
+        <Compare expression="wd0"><PartImage x="25" y="147" width="35" height="49"><Image resource="wd0"/></PartImage></Compare>
+        <Compare expression="wd1"><PartImage x="24" y="145" width="37" height="53"><Image resource="wd1"/></PartImage></Compare>
+        <Compare expression="wd2"><PartImage x="25" y="148" width="34" height="44"><Image resource="wd2"/></PartImage></Compare>
+        <Compare expression="wd3"><PartImage x="24" y="146" width="36" height="50"><Image resource="wd3"/></PartImage></Compare>
+        <Compare expression="wd4"><PartImage x="25" y="148" width="34" height="45"><Image resource="wd4"/></PartImage></Compare>
+        <Compare expression="wd5"><PartImage x="26" y="151" width="32" height="40"><Image resource="wd5"/></PartImage></Compare>
+        <Compare expression="wd6"><PartImage x="26" y="147" width="32" height="47"><Image resource="wd6"/></PartImage></Compare>
+      </Condition>
+      <Condition><Expressions><Expression name="dd1"><![CDATA[[DAY] == 1]]></Expression><Expression name="dd2"><![CDATA[[DAY] == 2]]></Expression><Expression name="dd3"><![CDATA[[DAY] == 3]]></Expression><Expression name="dd4"><![CDATA[[DAY] == 4]]></Expression><Expression name="dd5"><![CDATA[[DAY] == 5]]></Expression><Expression name="dd6"><![CDATA[[DAY] == 6]]></Expression><Expression name="dd7"><![CDATA[[DAY] == 7]]></Expression><Expression name="dd8"><![CDATA[[DAY] == 8]]></Expression><Expression name="dd9"><![CDATA[[DAY] == 9]]></Expression><Expression name="dd10"><![CDATA[[DAY] == 10]]></Expression><Expression name="dd11"><![CDATA[[DAY] == 11]]></Expression><Expression name="dd12"><![CDATA[[DAY] == 12]]></Expression><Expression name="dd13"><![CDATA[[DAY] == 13]]></Expression><Expression name="dd14"><![CDATA[[DAY] == 14]]></Expression><Expression name="dd15"><![CDATA[[DAY] == 15]]></Expression><Expression name="dd16"><![CDATA[[DAY] == 16]]></Expression><Expression name="dd17"><![CDATA[[DAY] == 17]]></Expression><Expression name="dd18"><![CDATA[[DAY] == 18]]></Expression><Expression name="dd19"><![CDATA[[DAY] == 19]]></Expression><Expression name="dd20"><![CDATA[[DAY] == 20]]></Expression><Expression name="dd21"><![CDATA[[DAY] == 21]]></Expression><Expression name="dd22"><![CDATA[[DAY] == 22]]></Expression><Expression name="dd23"><![CDATA[[DAY] == 23]]></Expression><Expression name="dd24"><![CDATA[[DAY] == 24]]></Expression><Expression name="dd25"><![CDATA[[DAY] == 25]]></Expression><Expression name="dd26"><![CDATA[[DAY] == 26]]></Expression><Expression name="dd27"><![CDATA[[DAY] == 27]]></Expression><Expression name="dd28"><![CDATA[[DAY] == 28]]></Expression><Expression name="dd29"><![CDATA[[DAY] == 29]]></Expression><Expression name="dd30"><![CDATA[[DAY] == 30]]></Expression><Expression name="dd31"><![CDATA[[DAY] == 31]]></Expression></Expressions>
+        <Compare expression="dd1"><PartImage x="49" y="123" width="23" height="18"><Image resource="dd1"/></PartImage></Compare>
+        <Compare expression="dd2"><PartImage x="48" y="122" width="25" height="23"><Image resource="dd2"/></PartImage></Compare>
+        <Compare expression="dd3"><PartImage x="48" y="122" width="24" height="22"><Image resource="dd3"/></PartImage></Compare>
+        <Compare expression="dd4"><PartImage x="49" y="122" width="23" height="22"><Image resource="dd4"/></PartImage></Compare>
+        <Compare expression="dd5"><PartImage x="47" y="121" width="25" height="23"><Image resource="dd5"/></PartImage></Compare>
+        <Compare expression="dd6"><PartImage x="48" y="121" width="24" height="23"><Image resource="dd6"/></PartImage></Compare>
+        <Compare expression="dd7"><PartImage x="47" y="121" width="23" height="23"><Image resource="dd7"/></PartImage></Compare>
+        <Compare expression="dd8"><PartImage x="48" y="122" width="24" height="22"><Image resource="dd8"/></PartImage></Compare>
+        <Compare expression="dd9"><PartImage x="48" y="122" width="24" height="23"><Image resource="dd9"/></PartImage></Compare>
+        <Compare expression="dd10"><PartImage x="46" y="118" width="28" height="29"><Image resource="dd10"/></PartImage></Compare>
+        <Compare expression="dd11"><PartImage x="47" y="119" width="27" height="26"><Image resource="dd11"/></PartImage></Compare>
+        <Compare expression="dd12"><PartImage x="46" y="118" width="29" height="29"><Image resource="dd12"/></PartImage></Compare>
+        <Compare expression="dd13"><PartImage x="46" y="118" width="28" height="29"><Image resource="dd13"/></PartImage></Compare>
+        <Compare expression="dd14"><PartImage x="46" y="118" width="29" height="29"><Image resource="dd14"/></PartImage></Compare>
+        <Compare expression="dd15"><PartImage x="46" y="117" width="28" height="30"><Image resource="dd15"/></PartImage></Compare>
+        <Compare expression="dd16"><PartImage x="46" y="118" width="28" height="29"><Image resource="dd16"/></PartImage></Compare>
+        <Compare expression="dd17"><PartImage x="46" y="117" width="26" height="29"><Image resource="dd17"/></PartImage></Compare>
+        <Compare expression="dd18"><PartImage x="46" y="118" width="28" height="29"><Image resource="dd18"/></PartImage></Compare>
+        <Compare expression="dd19"><PartImage x="46" y="118" width="28" height="29"><Image resource="dd19"/></PartImage></Compare>
+        <Compare expression="dd20"><PartImage x="45" y="116" width="30" height="35"><Image resource="dd20"/></PartImage></Compare>
+        <Compare expression="dd21"><PartImage x="46" y="117" width="29" height="32"><Image resource="dd21"/></PartImage></Compare>
+        <Compare expression="dd22"><PartImage x="45" y="116" width="31" height="34"><Image resource="dd22"/></PartImage></Compare>
+        <Compare expression="dd23"><PartImage x="45" y="117" width="30" height="33"><Image resource="dd23"/></PartImage></Compare>
+        <Compare expression="dd24"><PartImage x="45" y="116" width="31" height="35"><Image resource="dd24"/></PartImage></Compare>
+        <Compare expression="dd25"><PartImage x="45" y="116" width="30" height="34"><Image resource="dd25"/></PartImage></Compare>
+        <Compare expression="dd26"><PartImage x="45" y="116" width="30" height="34"><Image resource="dd26"/></PartImage></Compare>
+        <Compare expression="dd27"><PartImage x="45" y="116" width="28" height="33"><Image resource="dd27"/></PartImage></Compare>
+        <Compare expression="dd28"><PartImage x="45" y="116" width="30" height="35"><Image resource="dd28"/></PartImage></Compare>
+        <Compare expression="dd29"><PartImage x="45" y="116" width="30" height="34"><Image resource="dd29"/></PartImage></Compare>
+        <Compare expression="dd30"><PartImage x="44" y="116" width="31" height="34"><Image resource="dd30"/></PartImage></Compare>
+        <Compare expression="dd31"><PartImage x="46" y="117" width="29" height="31"><Image resource="dd31"/></PartImage></Compare>
+      </Condition>
+      <Condition><Expressions><Expression name="mo1"><![CDATA[[MONTH] == 1]]></Expression><Expression name="mo2"><![CDATA[[MONTH] == 2]]></Expression><Expression name="mo3"><![CDATA[[MONTH] == 3]]></Expression><Expression name="mo4"><![CDATA[[MONTH] == 4]]></Expression><Expression name="mo5"><![CDATA[[MONTH] == 5]]></Expression><Expression name="mo6"><![CDATA[[MONTH] == 6]]></Expression><Expression name="mo7"><![CDATA[[MONTH] == 7]]></Expression><Expression name="mo8"><![CDATA[[MONTH] == 8]]></Expression><Expression name="mo9"><![CDATA[[MONTH] == 9]]></Expression><Expression name="mo10"><![CDATA[[MONTH] == 10]]></Expression><Expression name="mo11"><![CDATA[[MONTH] == 11]]></Expression><Expression name="mo12"><![CDATA[[MONTH] == 12]]></Expression></Expressions>
+        <Compare expression="mo1"><PartImage x="65" y="79" width="40" height="45"><Image resource="mo1"/></PartImage></Compare>
+        <Compare expression="mo2"><PartImage x="62" y="81" width="41" height="42"><Image resource="mo2"/></PartImage></Compare>
+        <Compare expression="mo3"><PartImage x="60" y="78" width="47" height="48"><Image resource="mo3"/></PartImage></Compare>
+        <Compare expression="mo4"><PartImage x="63" y="80" width="42" height="45"><Image resource="mo4"/></PartImage></Compare>
+        <Compare expression="mo5"><PartImage x="60" y="77" width="44" height="49"><Image resource="mo5"/></PartImage></Compare>
+        <Compare expression="mo6"><PartImage x="65" y="78" width="40" height="46"><Image resource="mo6"/></PartImage></Compare>
+        <Compare expression="mo7"><PartImage x="66" y="83" width="39" height="40"><Image resource="mo7"/></PartImage></Compare>
+        <Compare expression="mo8"><PartImage x="63" y="80" width="41" height="46"><Image resource="mo8"/></PartImage></Compare>
+        <Compare expression="mo9"><PartImage x="63" y="80" width="37" height="43"><Image resource="mo9"/></PartImage></Compare>
+        <Compare expression="mo10"><PartImage x="63" y="78" width="40" height="45"><Image resource="mo10"/></PartImage></Compare>
+        <Compare expression="mo11"><PartImage x="61" y="78" width="42" height="47"><Image resource="mo11"/></PartImage></Compare>
+        <Compare expression="mo12"><PartImage x="62" y="80" width="42" height="44"><Image resource="mo12"/></PartImage></Compare>
+      </Condition>
+      <Condition><Expressions><Expression name="wok">[WEATHER.IS_AVAILABLE]</Expression></Expressions><Compare expression="wok">
+        <Condition><Expressions><Expression name="t60"><![CDATA[round([WEATHER.TEMPERATURE]) == -40]]></Expression><Expression name="t61"><![CDATA[round([WEATHER.TEMPERATURE]) == -39]]></Expression><Expression name="t62"><![CDATA[round([WEATHER.TEMPERATURE]) == -38]]></Expression><Expression name="t63"><![CDATA[round([WEATHER.TEMPERATURE]) == -37]]></Expression><Expression name="t64"><![CDATA[round([WEATHER.TEMPERATURE]) == -36]]></Expression><Expression name="t65"><![CDATA[round([WEATHER.TEMPERATURE]) == -35]]></Expression><Expression name="t66"><![CDATA[round([WEATHER.TEMPERATURE]) == -34]]></Expression><Expression name="t67"><![CDATA[round([WEATHER.TEMPERATURE]) == -33]]></Expression><Expression name="t68"><![CDATA[round([WEATHER.TEMPERATURE]) == -32]]></Expression><Expression name="t69"><![CDATA[round([WEATHER.TEMPERATURE]) == -31]]></Expression><Expression name="t70"><![CDATA[round([WEATHER.TEMPERATURE]) == -30]]></Expression><Expression name="t71"><![CDATA[round([WEATHER.TEMPERATURE]) == -29]]></Expression><Expression name="t72"><![CDATA[round([WEATHER.TEMPERATURE]) == -28]]></Expression><Expression name="t73"><![CDATA[round([WEATHER.TEMPERATURE]) == -27]]></Expression><Expression name="t74"><![CDATA[round([WEATHER.TEMPERATURE]) == -26]]></Expression><Expression name="t75"><![CDATA[round([WEATHER.TEMPERATURE]) == -25]]></Expression><Expression name="t76"><![CDATA[round([WEATHER.TEMPERATURE]) == -24]]></Expression><Expression name="t77"><![CDATA[round([WEATHER.TEMPERATURE]) == -23]]></Expression><Expression name="t78"><![CDATA[round([WEATHER.TEMPERATURE]) == -22]]></Expression><Expression name="t79"><![CDATA[round([WEATHER.TEMPERATURE]) == -21]]></Expression><Expression name="t80"><![CDATA[round([WEATHER.TEMPERATURE]) == -20]]></Expression><Expression name="t81"><![CDATA[round([WEATHER.TEMPERATURE]) == -19]]></Expression><Expression name="t82"><![CDATA[round([WEATHER.TEMPERATURE]) == -18]]></Expression><Expression name="t83"><![CDATA[round([WEATHER.TEMPERATURE]) == -17]]></Expression><Expression name="t84"><![CDATA[round([WEATHER.TEMPERATURE]) == -16]]></Expression><Expression name="t85"><![CDATA[round([WEATHER.TEMPERATURE]) == -15]]></Expression><Expression name="t86"><![CDATA[round([WEATHER.TEMPERATURE]) == -14]]></Expression><Expression name="t87"><![CDATA[round([WEATHER.TEMPERATURE]) == -13]]></Expression><Expression name="t88"><![CDATA[round([WEATHER.TEMPERATURE]) == -12]]></Expression><Expression name="t89"><![CDATA[round([WEATHER.TEMPERATURE]) == -11]]></Expression><Expression name="t90"><![CDATA[round([WEATHER.TEMPERATURE]) == -10]]></Expression><Expression name="t91"><![CDATA[round([WEATHER.TEMPERATURE]) == -9]]></Expression><Expression name="t92"><![CDATA[round([WEATHER.TEMPERATURE]) == -8]]></Expression><Expression name="t93"><![CDATA[round([WEATHER.TEMPERATURE]) == -7]]></Expression><Expression name="t94"><![CDATA[round([WEATHER.TEMPERATURE]) == -6]]></Expression><Expression name="t95"><![CDATA[round([WEATHER.TEMPERATURE]) == -5]]></Expression><Expression name="t96"><![CDATA[round([WEATHER.TEMPERATURE]) == -4]]></Expression><Expression name="t97"><![CDATA[round([WEATHER.TEMPERATURE]) == -3]]></Expression><Expression name="t98"><![CDATA[round([WEATHER.TEMPERATURE]) == -2]]></Expression><Expression name="t99"><![CDATA[round([WEATHER.TEMPERATURE]) == -1]]></Expression><Expression name="t100"><![CDATA[round([WEATHER.TEMPERATURE]) == 0]]></Expression><Expression name="t101"><![CDATA[round([WEATHER.TEMPERATURE]) == 1]]></Expression><Expression name="t102"><![CDATA[round([WEATHER.TEMPERATURE]) == 2]]></Expression><Expression name="t103"><![CDATA[round([WEATHER.TEMPERATURE]) == 3]]></Expression><Expression name="t104"><![CDATA[round([WEATHER.TEMPERATURE]) == 4]]></Expression><Expression name="t105"><![CDATA[round([WEATHER.TEMPERATURE]) == 5]]></Expression><Expression name="t106"><![CDATA[round([WEATHER.TEMPERATURE]) == 6]]></Expression><Expression name="t107"><![CDATA[round([WEATHER.TEMPERATURE]) == 7]]></Expression><Expression name="t108"><![CDATA[round([WEATHER.TEMPERATURE]) == 8]]></Expression><Expression name="t109"><![CDATA[round([WEATHER.TEMPERATURE]) == 9]]></Expression><Expression name="t110"><![CDATA[round([WEATHER.TEMPERATURE]) == 10]]></Expression><Expression name="t111"><![CDATA[round([WEATHER.TEMPERATURE]) == 11]]></Expression><Expression name="t112"><![CDATA[round([WEATHER.TEMPERATURE]) == 12]]></Expression><Expression name="t113"><![CDATA[round([WEATHER.TEMPERATURE]) == 13]]></Expression><Expression name="t114"><![CDATA[round([WEATHER.TEMPERATURE]) == 14]]></Expression><Expression name="t115"><![CDATA[round([WEATHER.TEMPERATURE]) == 15]]></Expression><Expression name="t116"><![CDATA[round([WEATHER.TEMPERATURE]) == 16]]></Expression><Expression name="t117"><![CDATA[round([WEATHER.TEMPERATURE]) == 17]]></Expression><Expression name="t118"><![CDATA[round([WEATHER.TEMPERATURE]) == 18]]></Expression><Expression name="t119"><![CDATA[round([WEATHER.TEMPERATURE]) == 19]]></Expression><Expression name="t120"><![CDATA[round([WEATHER.TEMPERATURE]) == 20]]></Expression><Expression name="t121"><![CDATA[round([WEATHER.TEMPERATURE]) == 21]]></Expression><Expression name="t122"><![CDATA[round([WEATHER.TEMPERATURE]) == 22]]></Expression><Expression name="t123"><![CDATA[round([WEATHER.TEMPERATURE]) == 23]]></Expression><Expression name="t124"><![CDATA[round([WEATHER.TEMPERATURE]) == 24]]></Expression><Expression name="t125"><![CDATA[round([WEATHER.TEMPERATURE]) == 25]]></Expression><Expression name="t126"><![CDATA[round([WEATHER.TEMPERATURE]) == 26]]></Expression><Expression name="t127"><![CDATA[round([WEATHER.TEMPERATURE]) == 27]]></Expression><Expression name="t128"><![CDATA[round([WEATHER.TEMPERATURE]) == 28]]></Expression><Expression name="t129"><![CDATA[round([WEATHER.TEMPERATURE]) == 29]]></Expression><Expression name="t130"><![CDATA[round([WEATHER.TEMPERATURE]) == 30]]></Expression><Expression name="t131"><![CDATA[round([WEATHER.TEMPERATURE]) == 31]]></Expression><Expression name="t132"><![CDATA[round([WEATHER.TEMPERATURE]) == 32]]></Expression><Expression name="t133"><![CDATA[round([WEATHER.TEMPERATURE]) == 33]]></Expression><Expression name="t134"><![CDATA[round([WEATHER.TEMPERATURE]) == 34]]></Expression><Expression name="t135"><![CDATA[round([WEATHER.TEMPERATURE]) == 35]]></Expression><Expression name="t136"><![CDATA[round([WEATHER.TEMPERATURE]) == 36]]></Expression><Expression name="t137"><![CDATA[round([WEATHER.TEMPERATURE]) == 37]]></Expression><Expression name="t138"><![CDATA[round([WEATHER.TEMPERATURE]) == 38]]></Expression><Expression name="t139"><![CDATA[round([WEATHER.TEMPERATURE]) == 39]]></Expression><Expression name="t140"><![CDATA[round([WEATHER.TEMPERATURE]) == 40]]></Expression><Expression name="t141"><![CDATA[round([WEATHER.TEMPERATURE]) == 41]]></Expression><Expression name="t142"><![CDATA[round([WEATHER.TEMPERATURE]) == 42]]></Expression><Expression name="t143"><![CDATA[round([WEATHER.TEMPERATURE]) == 43]]></Expression><Expression name="t144"><![CDATA[round([WEATHER.TEMPERATURE]) == 44]]></Expression><Expression name="t145"><![CDATA[round([WEATHER.TEMPERATURE]) == 45]]></Expression><Expression name="t146"><![CDATA[round([WEATHER.TEMPERATURE]) == 46]]></Expression><Expression name="t147"><![CDATA[round([WEATHER.TEMPERATURE]) == 47]]></Expression><Expression name="t148"><![CDATA[round([WEATHER.TEMPERATURE]) == 48]]></Expression><Expression name="t149"><![CDATA[round([WEATHER.TEMPERATURE]) == 49]]></Expression><Expression name="t150"><![CDATA[round([WEATHER.TEMPERATURE]) == 50]]></Expression><Expression name="t151"><![CDATA[round([WEATHER.TEMPERATURE]) == 51]]></Expression><Expression name="t152"><![CDATA[round([WEATHER.TEMPERATURE]) == 52]]></Expression><Expression name="t153"><![CDATA[round([WEATHER.TEMPERATURE]) == 53]]></Expression><Expression name="t154"><![CDATA[round([WEATHER.TEMPERATURE]) == 54]]></Expression><Expression name="t155"><![CDATA[round([WEATHER.TEMPERATURE]) == 55]]></Expression></Expressions>
+          <Compare expression="t60"><PartImage x="398" y="101" width="44" height="59"><Image resource="tp60"/></PartImage></Compare>
+          <Compare expression="t61"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp61"/></PartImage></Compare>
+          <Compare expression="t62"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp62"/></PartImage></Compare>
+          <Compare expression="t63"><PartImage x="399" y="103" width="42" height="55"><Image resource="tp63"/></PartImage></Compare>
+          <Compare expression="t64"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp64"/></PartImage></Compare>
+          <Compare expression="t65"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp65"/></PartImage></Compare>
+          <Compare expression="t66"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp66"/></PartImage></Compare>
+          <Compare expression="t67"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp67"/></PartImage></Compare>
+          <Compare expression="t68"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp68"/></PartImage></Compare>
+          <Compare expression="t69"><PartImage x="399" y="103" width="42" height="54"><Image resource="tp69"/></PartImage></Compare>
+          <Compare expression="t70"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp70"/></PartImage></Compare>
+          <Compare expression="t71"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp71"/></PartImage></Compare>
+          <Compare expression="t72"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp72"/></PartImage></Compare>
+          <Compare expression="t73"><PartImage x="399" y="103" width="42" height="55"><Image resource="tp73"/></PartImage></Compare>
+          <Compare expression="t74"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp74"/></PartImage></Compare>
+          <Compare expression="t75"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp75"/></PartImage></Compare>
+          <Compare expression="t76"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp76"/></PartImage></Compare>
+          <Compare expression="t77"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp77"/></PartImage></Compare>
+          <Compare expression="t78"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp78"/></PartImage></Compare>
+          <Compare expression="t79"><PartImage x="400" y="104" width="41" height="53"><Image resource="tp79"/></PartImage></Compare>
+          <Compare expression="t80"><PartImage x="398" y="102" width="44" height="57"><Image resource="tp80"/></PartImage></Compare>
+          <Compare expression="t81"><PartImage x="399" y="103" width="42" height="54"><Image resource="tp81"/></PartImage></Compare>
+          <Compare expression="t82"><PartImage x="399" y="103" width="42" height="54"><Image resource="tp82"/></PartImage></Compare>
+          <Compare expression="t83"><PartImage x="400" y="104" width="40" height="52"><Image resource="tp83"/></PartImage></Compare>
+          <Compare expression="t84"><PartImage x="399" y="103" width="42" height="54"><Image resource="tp84"/></PartImage></Compare>
+          <Compare expression="t85"><PartImage x="400" y="104" width="41" height="53"><Image resource="tp85"/></PartImage></Compare>
+          <Compare expression="t86"><PartImage x="399" y="103" width="42" height="54"><Image resource="tp86"/></PartImage></Compare>
+          <Compare expression="t87"><PartImage x="399" y="103" width="42" height="54"><Image resource="tp87"/></PartImage></Compare>
+          <Compare expression="t88"><PartImage x="400" y="104" width="41" height="53"><Image resource="tp88"/></PartImage></Compare>
+          <Compare expression="t89"><PartImage x="401" y="105" width="39" height="50"><Image resource="tp89"/></PartImage></Compare>
+          <Compare expression="t90"><PartImage x="399" y="103" width="42" height="54"><Image resource="tp90"/></PartImage></Compare>
+          <Compare expression="t91"><PartImage x="402" y="107" width="37" height="46"><Image resource="tp91"/></PartImage></Compare>
+          <Compare expression="t92"><PartImage x="402" y="107" width="37" height="47"><Image resource="tp92"/></PartImage></Compare>
+          <Compare expression="t93"><PartImage x="403" y="108" width="35" height="44"><Image resource="tp93"/></PartImage></Compare>
+          <Compare expression="t94"><PartImage x="402" y="107" width="37" height="46"><Image resource="tp94"/></PartImage></Compare>
+          <Compare expression="t95"><PartImage x="402" y="107" width="37" height="46"><Image resource="tp95"/></PartImage></Compare>
+          <Compare expression="t96"><PartImage x="402" y="107" width="37" height="47"><Image resource="tp96"/></PartImage></Compare>
+          <Compare expression="t97"><PartImage x="402" y="107" width="37" height="46"><Image resource="tp97"/></PartImage></Compare>
+          <Compare expression="t98"><PartImage x="402" y="107" width="37" height="46"><Image resource="tp98"/></PartImage></Compare>
+          <Compare expression="t99"><PartImage x="403" y="109" width="35" height="43"><Image resource="tp99"/></PartImage></Compare>
+          <Compare expression="t100"><PartImage x="401" y="108" width="36" height="42"><Image resource="tp100"/></PartImage></Compare>
+          <Compare expression="t101"><PartImage x="402" y="109" width="34" height="39"><Image resource="tp101"/></PartImage></Compare>
+          <Compare expression="t102"><PartImage x="400" y="108" width="37" height="41"><Image resource="tp102"/></PartImage></Compare>
+          <Compare expression="t103"><PartImage x="401" y="108" width="36" height="42"><Image resource="tp103"/></PartImage></Compare>
+          <Compare expression="t104"><PartImage x="402" y="111" width="35" height="39"><Image resource="tp104"/></PartImage></Compare>
+          <Compare expression="t105"><PartImage x="401" y="107" width="36" height="43"><Image resource="tp105"/></PartImage></Compare>
+          <Compare expression="t106"><PartImage x="401" y="108" width="36" height="42"><Image resource="tp106"/></PartImage></Compare>
+          <Compare expression="t107"><PartImage x="400" y="107" width="36" height="42"><Image resource="tp107"/></PartImage></Compare>
+          <Compare expression="t108"><PartImage x="401" y="108" width="36" height="42"><Image resource="tp108"/></PartImage></Compare>
+          <Compare expression="t109"><PartImage x="400" y="108" width="37" height="42"><Image resource="tp109"/></PartImage></Compare>
+          <Compare expression="t110"><PartImage x="398" y="104" width="41" height="50"><Image resource="tp110"/></PartImage></Compare>
+          <Compare expression="t111"><PartImage x="400" y="105" width="38" height="47"><Image resource="tp111"/></PartImage></Compare>
+          <Compare expression="t112"><PartImage x="399" y="104" width="40" height="49"><Image resource="tp112"/></PartImage></Compare>
+          <Compare expression="t113"><PartImage x="399" y="104" width="40" height="50"><Image resource="tp113"/></PartImage></Compare>
+          <Compare expression="t114"><PartImage x="398" y="103" width="41" height="51"><Image resource="tp114"/></PartImage></Compare>
+          <Compare expression="t115"><PartImage x="399" y="104" width="40" height="49"><Image resource="tp115"/></PartImage></Compare>
+          <Compare expression="t116"><PartImage x="399" y="104" width="40" height="50"><Image resource="tp116"/></PartImage></Compare>
+          <Compare expression="t117"><PartImage x="399" y="105" width="40" height="48"><Image resource="tp117"/></PartImage></Compare>
+          <Compare expression="t118"><PartImage x="398" y="103" width="41" height="51"><Image resource="tp118"/></PartImage></Compare>
+          <Compare expression="t119"><PartImage x="399" y="104" width="40" height="50"><Image resource="tp119"/></PartImage></Compare>
+          <Compare expression="t120"><PartImage x="396" y="102" width="44" height="53"><Image resource="tp120"/></PartImage></Compare>
+          <Compare expression="t121"><PartImage x="397" y="104" width="42" height="49"><Image resource="tp121"/></PartImage></Compare>
+          <Compare expression="t122"><PartImage x="396" y="103" width="44" height="52"><Image resource="tp122"/></PartImage></Compare>
+          <Compare expression="t123"><PartImage x="396" y="103" width="44" height="52"><Image resource="tp123"/></PartImage></Compare>
+          <Compare expression="t124"><PartImage x="396" y="102" width="44" height="53"><Image resource="tp124"/></PartImage></Compare>
+          <Compare expression="t125"><PartImage x="396" y="103" width="44" height="52"><Image resource="tp125"/></PartImage></Compare>
+          <Compare expression="t126"><PartImage x="396" y="103" width="44" height="52"><Image resource="tp126"/></PartImage></Compare>
+          <Compare expression="t127"><PartImage x="397" y="104" width="42" height="50"><Image resource="tp127"/></PartImage></Compare>
+          <Compare expression="t128"><PartImage x="396" y="102" width="44" height="53"><Image resource="tp128"/></PartImage></Compare>
+          <Compare expression="t129"><PartImage x="396" y="103" width="44" height="52"><Image resource="tp129"/></PartImage></Compare>
+          <Compare expression="t130"><PartImage x="397" y="102" width="43" height="54"><Image resource="tp130"/></PartImage></Compare>
+          <Compare expression="t131"><PartImage x="398" y="104" width="41" height="50"><Image resource="tp131"/></PartImage></Compare>
+          <Compare expression="t132"><PartImage x="397" y="103" width="43" height="52"><Image resource="tp132"/></PartImage></Compare>
+          <Compare expression="t133"><PartImage x="397" y="102" width="43" height="53"><Image resource="tp133"/></PartImage></Compare>
+          <Compare expression="t134"><PartImage x="397" y="102" width="43" height="54"><Image resource="tp134"/></PartImage></Compare>
+          <Compare expression="t135"><PartImage x="397" y="103" width="43" height="52"><Image resource="tp135"/></PartImage></Compare>
+          <Compare expression="t136"><PartImage x="397" y="102" width="43" height="53"><Image resource="tp136"/></PartImage></Compare>
+          <Compare expression="t137"><PartImage x="398" y="103" width="41" height="51"><Image resource="tp137"/></PartImage></Compare>
+          <Compare expression="t138"><PartImage x="397" y="102" width="43" height="54"><Image resource="tp138"/></PartImage></Compare>
+          <Compare expression="t139"><PartImage x="397" y="102" width="43" height="53"><Image resource="tp139"/></PartImage></Compare>
+          <Compare expression="t140"><PartImage x="398" y="105" width="42" height="51"><Image resource="tp140"/></PartImage></Compare>
+          <Compare expression="t141"><PartImage x="399" y="107" width="40" height="47"><Image resource="tp141"/></PartImage></Compare>
+          <Compare expression="t142"><PartImage x="398" y="106" width="42" height="49"><Image resource="tp142"/></PartImage></Compare>
+          <Compare expression="t143"><PartImage x="398" y="105" width="42" height="51"><Image resource="tp143"/></PartImage></Compare>
+          <Compare expression="t144"><PartImage x="398" y="105" width="42" height="51"><Image resource="tp144"/></PartImage></Compare>
+          <Compare expression="t145"><PartImage x="398" y="105" width="42" height="51"><Image resource="tp145"/></PartImage></Compare>
+          <Compare expression="t146"><PartImage x="398" y="105" width="42" height="51"><Image resource="tp146"/></PartImage></Compare>
+          <Compare expression="t147"><PartImage x="399" y="106" width="41" height="49"><Image resource="tp147"/></PartImage></Compare>
+          <Compare expression="t148"><PartImage x="398" y="105" width="42" height="51"><Image resource="tp148"/></PartImage></Compare>
+          <Compare expression="t149"><PartImage x="398" y="105" width="42" height="51"><Image resource="tp149"/></PartImage></Compare>
+          <Compare expression="t150"><PartImage x="397" y="101" width="43" height="54"><Image resource="tp150"/></PartImage></Compare>
+          <Compare expression="t151"><PartImage x="398" y="103" width="41" height="50"><Image resource="tp151"/></PartImage></Compare>
+          <Compare expression="t152"><PartImage x="397" y="102" width="43" height="53"><Image resource="tp152"/></PartImage></Compare>
+          <Compare expression="t153"><PartImage x="397" y="102" width="43" height="53"><Image resource="tp153"/></PartImage></Compare>
+          <Compare expression="t154"><PartImage x="397" y="101" width="43" height="55"><Image resource="tp154"/></PartImage></Compare>
+          <Compare expression="t155"><PartImage x="397" y="102" width="43" height="53"><Image resource="tp155"/></PartImage></Compare>
+          <Default><PartImage x="404" y="109" width="34" height="42"><Image resource="tpna"/></PartImage></Default></Condition>
+      </Compare><Default><PartImage x="404" y="109" width="34" height="42"><Image resource="tpna"/></PartImage></Default></Condition>
+      <PartText x="-2" y="220" width="60" height="37"><Text align="CENTER"><BitmapFont family="num" size="37"><Template>%s<Parameter expression="[BATTERY_PERCENT]"/></Template></BitmapFont></Text></PartText>
+      <Condition><Expressions><Expression name="hrok"><![CDATA[[HEART_RATE] > 0]]></Expression></Expressions>
+        <Compare expression="hrok"><PartText x="422" y="226" width="60" height="37"><Text align="CENTER"><BitmapFont family="num" size="37"><Template>%s<Parameter expression="[HEART_RATE]"/></Template></BitmapFont></Text></PartText></Compare>
+        <Default><PartText x="422" y="226" width="60" height="37"><Text align="CENTER"><BitmapFont family="num" size="37"><Template>--%s<Parameter expression="&quot;&quot;"/></Template></BitmapFont></Text></PartText></Default></Condition>
+      <PartText x="170" y="431" width="140" height="37"><Text align="CENTER"><BitmapFont family="num" size="37"><Template>%s<Parameter expression="numberFormat(&quot;#,##0&quot;, [STEP_COUNT])"/></Template></BitmapFont></Text></PartText>
+    </Group>
+    <AnalogClock x="2" y="4" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><HourHand resource="hour_sh" x="221" y="110" width="38" height="160" pivotX="0.50000" pivotY="0.81250"/><MinuteHand resource="minute_sh" x="222" y="42" width="36" height="232" pivotX="0.50000" pivotY="0.85345"/></AnalogClock>
+    <ListConfiguration id="color">
+      <ListOption id="gold">
+        <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hour_gold" x="231" y="120" width="18" height="140" pivotX="0.50000" pivotY="0.85714"/><MinuteHand resource="minute_gold" x="232" y="52" width="16" height="212" pivotX="0.50000" pivotY="0.88679"/></AnalogClock>
+      </ListOption>
+      <ListOption id="tech">
+        <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hour_tech" x="231" y="120" width="18" height="140" pivotX="0.50000" pivotY="0.85714"/><MinuteHand resource="minute_tech" x="232" y="52" width="16" height="212" pivotX="0.50000" pivotY="0.88679"/></AnalogClock>
+      </ListOption>
+      <ListOption id="silver">
+        <AnalogClock x="0" y="0" width="480" height="480"><HourHand resource="hour_silver" x="231" y="120" width="18" height="140" pivotX="0.50000" pivotY="0.85714"/><MinuteHand resource="minute_silver" x="232" y="52" width="16" height="212" pivotX="0.50000" pivotY="0.88679"/></AnalogClock>
+      </ListOption>
+    </ListConfiguration>
+    <AnalogClock x="2" y="4" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><SecondHand resource="second_sh" x="222" y="28" width="36" height="264" pivotX="0.50000" pivotY="0.80303"/></AnalogClock>
+    <ListConfiguration id="color">
+      <ListOption id="gold">
+        <AnalogClock x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><SecondHand resource="second_gold" x="232" y="38" width="16" height="244" pivotX="0.50000" pivotY="0.82787"/></AnalogClock>
+      </ListOption>
+      <ListOption id="tech">
+        <AnalogClock x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><SecondHand resource="second_tech" x="232" y="38" width="16" height="244" pivotX="0.50000" pivotY="0.82787"/></AnalogClock>
+      </ListOption>
+      <ListOption id="silver">
+        <AnalogClock x="0" y="0" width="480" height="480"><Variant mode="AMBIENT" target="alpha" value="0"/><SecondHand resource="second_silver" x="232" y="38" width="16" height="244" pivotX="0.50000" pivotY="0.82787"/></AnalogClock>
+      </ListOption>
+    </ListConfiguration>
+    <ListConfiguration id="color">
+      <ListOption id="gold">
+        <PartImage x="229" y="229" width="22" height="22"><Image resource="cap_gold"/></PartImage>
+      </ListOption>
+      <ListOption id="tech">
+        <PartImage x="229" y="229" width="22" height="22"><Image resource="cap_tech"/></PartImage>
+      </ListOption>
+      <ListOption id="silver">
+        <PartImage x="229" y="229" width="22" height="22"><Image resource="cap_silver"/></PartImage>
+      </ListOption>
+    </ListConfiguration>
+    <Group name="tap_date" x="24" y="95" width="70" height="80"><Variant mode="AMBIENT" target="alpha" value="0"/><Launch target="CALENDAR"/><PartDraw x="0" y="0" width="70" height="80"><Rectangle x="0" y="0" width="70" height="80"><Fill color="#01000000"/></Rectangle></PartDraw></Group>
+    <Group name="tap_temp" x="389" y="101" width="56" height="56"><Variant mode="AMBIENT" target="alpha" value="0"/><Launch target="com.samsung.android.watch.weather/com.samsung.android.watch.weather.ui.WeatherActivity"/><PartDraw x="0" y="0" width="56" height="56"><Rectangle x="0" y="0" width="56" height="56"><Fill color="#01000000"/></Rectangle></PartDraw></Group>
+    <Group name="tap_batt" x="7" y="201" width="46" height="70"><Variant mode="AMBIENT" target="alpha" value="0"/><Launch target="BATTERY_STATUS"/><PartDraw x="0" y="0" width="46" height="70"><Rectangle x="0" y="0" width="46" height="70"><Fill color="#01000000"/></Rectangle></PartDraw></Group>
+    <Group name="tap_hr" x="427" y="205" width="46" height="70"><Variant mode="AMBIENT" target="alpha" value="0"/><Launch target="HEALTH_HEART_RATE"/><PartDraw x="0" y="0" width="46" height="70"><Rectangle x="0" y="0" width="46" height="70"><Fill color="#01000000"/></Rectangle></PartDraw></Group>
+    <Group name="tap_steps" x="185" y="427" width="110" height="40"><Variant mode="AMBIENT" target="alpha" value="0"/><Launch target="com.samsung.android.wear.shealth/com.samsung.android.wear.shealth.app.steps.view.StepsActivity"/><PartDraw x="0" y="0" width="110" height="40"><Rectangle x="0" y="0" width="110" height="40"><Fill color="#01000000"/></Rectangle></PartDraw></Group>
+    <Group name="tap_gemini" x="103" y="341" width="36" height="36"><Variant mode="AMBIENT" target="alpha" value="0"/><Launch target="com.google.android.wearable.assistant/com.google.android.wearable.assistant.JokerActivity"/><PartDraw x="0" y="0" width="36" height="36"><Rectangle x="0" y="0" width="36" height="36"><Fill color="#01000000"/></Rectangle></PartDraw></Group>
+  </Scene>
+</WatchFace>
