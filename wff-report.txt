@@ -1,3 +1,6 @@
+== buddha-face/src/main/res/raw/watchface.xml
+INFO: WFF Validation Application Version unspecified. Maximum Supported Format Version #5
+INFO: ✅  PASSED : buddha-face/src/main/res/raw/watchface.xml is valid against watch face format version #2
 == carbon-face/src/main/res/raw/watchface.xml
 INFO: WFF Validation Application Version unspecified. Maximum Supported Format Version #5
 INFO: ✅  PASSED : carbon-face/src/main/res/raw/watchface.xml is valid against watch face format version #2
