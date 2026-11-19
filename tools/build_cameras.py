@@ -69,5 +69,6 @@ print('no-limit',sum(1 for r in final if r[2]==0),'no-dir',sum(1 for r in final 
 print('top unparsed dirs',unparsed.most_common(25))
 print('limits',collections.Counter(r[2] for r in final).most_common(12))
 if len(final)<500: print('too few rows, keep old file'); sys.exit(1)
+import os; os.makedirs(os.path.dirname(sys.argv[1]),exist_ok=True)
 with open(sys.argv[1],'w',encoding='utf-8',newline='') as f:
     w=csv.writer(f); w.writerow(['lat','lon','limit','dir','name']); w.writerows(final)
