@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         CamDb.load(this)
         CamDb.updateIfOld(this)
-        setContent { Root(::onStart, ::onStop) }
+        setContent { Root(::tapStart, ::tapStop) }
     }
 
     override fun onResume() {
@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
         else window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
-    private fun onStart() {
+    private fun tapStart() {
         val need = mutableListOf<String>()
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             need += Manifest.permission.ACCESS_FINE_LOCATION; need += Manifest.permission.ACCESS_COARSE_LOCATION
@@ -76,7 +76,7 @@ class MainActivity : ComponentActivity() {
         keepScreen(true)
     }
 
-    private fun onStop() {
+    private fun tapStop() {
         SpeedService.stop(this)
         keepScreen(false)
     }
