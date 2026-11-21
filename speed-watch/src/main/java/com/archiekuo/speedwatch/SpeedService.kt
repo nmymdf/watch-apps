@@ -31,6 +31,11 @@ class SpeedService : Service(), LocationListener {
     private var heading: Float? = null
     private var alertedCam: Cam? = null
     private var lastOverBuzz = 0L
+    // 連續確認：同一個測速點要連續 3 次都在正前方、而且越來越近，才提醒
+    private var candCam: Cam? = null
+    private var candHits = 0
+    private var candDist = 0f
+    private var awayHits = 0
 
     companion object {
         const val CH_RUN = "run"
@@ -142,13 +147,45 @@ class SpeedService : Service(), LocationListener {
             }
         }
 
-        // 提前多遠提醒：時速 70 以上 800 公尺，以下 300 公尺
-        val alertM = if (kmh >= 70f) 800f else 300f
-        val near = CamDb.nearestAhead(loc, heading, 3000f)
+        // 提前多遠提醒：時速 90 以上 1000 公尺、70 以上 800 公尺，以下 300 公尺
+        val alertM = when { kmh >= 90f -> 1000f; kmh >= 70f -> 800f; else -> 300f }
+        // 高速時：只看正前方窄角度、路線兩旁 40 公尺內，並排除速限 60 以下的平面道路測速
+        val fast = kmh >= 80f
+        val near = CamDb.nearestAhead(
+            loc, heading, 3000f,
+            cone = if (kmh >= 60f) 20f else 45f,
+            sideMax = if (fast) 40f else 9999f,
+            minLimit = if (fast) 61 else 0,
+            dirTol = if (fast) 45f else 60f
+        )
         Live.aheadKm = near?.second?.let { it / 1000f }
 
+        // 確認目前要提醒的點
+        var show: Pair<Cam, Float>? = null
         if (near != null && near.second <= alertM) {
-            val (cam, d) = near
+            if (alertedCam === near.first) {
+                show = near
+            } else if (candCam === near.first && near.second < candDist) {
+                candHits++
+                if (candHits >= 3) show = near
+            } else {
+                candCam = near.first; candHits = 1
+            }
+            candDist = near.second
+        } else {
+            candCam = null; candHits = 0
+        }
+        // 已經在提醒中的點：開過頭（距離連續變遠）才結束
+        val cur = alertedCam
+        if (show == null && cur != null) {
+            val rr = FloatArray(1)
+            Location.distanceBetween(loc.latitude, loc.longitude, cur.lat, cur.lon, rr)
+            if (rr[0] < Live.camDist + 15f && rr[0] < alertM + 100f) { awayHits = 0; show = cur to rr[0] }
+            else if (++awayHits < 2) show = cur to rr[0]
+        } else awayHits = 0
+
+        if (show != null) {
+            val (cam, d) = show
             Live.cam = cam
             Live.camDist = d.toInt()
             val over = cam.limit > 0 && kmh > cam.limit + 5

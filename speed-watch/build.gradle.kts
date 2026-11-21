@@ -11,8 +11,8 @@ android {
         applicationId = "com.archiekuo.speedwatch"
         minSdk = 30
         targetSdk = 34
-        versionCode = 1
-        versionName = "0.1"
+        versionCode = 2
+        versionName = "0.2"
     }
 
     // 固定簽章：之後改版可以直接覆蓋安裝

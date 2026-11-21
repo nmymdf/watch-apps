@@ -100,20 +100,25 @@ object CamDb {
         return d
     }
 
-    /** 找在你前方、方向符合、最近的測速點 */
-    fun nearestAhead(here: Location, heading: Float?, maxM: Float): Pair<Cam, Float>? {
+    /** 找在你前方、方向符合、最近的測速點
+     *  cone：前方允許的角度；sideMax：離你行進路線的橫向距離上限；minLimit：速限低於這個就不算（高速時排除平面道路） */
+    fun nearestAhead(here: Location, heading: Float?, maxM: Float,
+                     cone: Float = 45f, sideMax: Float = 9999f, minLimit: Int = 0, dirTol: Float = 60f): Pair<Cam, Float>? {
         var best: Cam? = null
         var bestD = Float.MAX_VALUE
         val r = FloatArray(2)
         val dLat = maxM / 111_000.0
         for (c in cams) {
             if (abs(c.lat - here.latitude) > dLat || abs(c.lon - here.longitude) > dLat * 1.2) continue
+            if (c.limit in 1 until minLimit) continue
             Location.distanceBetween(here.latitude, here.longitude, c.lat, c.lon, r)
             val d = r[0]
             if (d > maxM || d >= bestD) continue
             if (heading != null) {
-                if (d > 40f && angleDiff(r[1], heading) > 45f) continue     // 不在前方
-                if (c.dir >= 0 && angleDiff(c.dir.toFloat(), heading) > 60f) continue // 方向不符
+                val off = angleDiff(r[1], heading)
+                if (d > 40f && off > cone) continue                                   // 不在前方
+                if (d * kotlin.math.sin(Math.toRadians(off.toDouble())) > sideMax) continue // 離路線太遠（旁邊的路）
+                if (c.dir >= 0 && angleDiff(c.dir.toFloat(), heading) > dirTol) continue    // 方向不符
             }
             best = c; bestD = d
         }

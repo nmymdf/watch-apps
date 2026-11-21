@@ -37,10 +37,14 @@ def col(h,*keys):
     for i,x in enumerate(h):
         if any(k.lower() in x.lower() for k in keys): return i
     return None
+import glob, os
 out=[]; unparsed=collections.Counter(); stats={}
-for ds in ('7320','13940'):
+# 國道資料只能從台灣網路下載：手動下載後放在 tools/raw/（csv 或 zip），這裡一併讀進來
+sources=[('7320',None)]+[(os.path.basename(f),f) for f in sorted(glob.glob(os.path.join(os.path.dirname(__file__),'raw','*'))) if f.lower().endswith(('.csv','.zip'))]
+for ds,path in sources:
     try:
-        u=dist_url(ds); rows=list(csv.reader(io.StringIO(text_of(get(u)))))
+        b=open(path,'rb').read() if path else get(dist_url(ds))
+        rows=list(csv.reader(io.StringIO(text_of(b))))
     except Exception as e:
         print('FAIL',ds,e); continue
     h=rows[0]
