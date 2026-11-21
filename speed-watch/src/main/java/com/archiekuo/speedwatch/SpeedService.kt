@@ -156,7 +156,7 @@ class SpeedService : Service(), LocationListener {
             cone = if (kmh >= 60f) 20f else 45f,
             sideMax = if (fast) 40f else 9999f,
             minLimit = if (fast) 61 else 0,
-            dirTol = 80f   // 資料上的方向是大方向（例如「北往南」），道路會轉彎，所以放寬
+            dirTol = 100f  // 資料上的方向是大方向（例如「北往南」），道路會轉彎，所以放寬
         )
         Live.aheadKm = near?.second?.let { it / 1000f }
 
