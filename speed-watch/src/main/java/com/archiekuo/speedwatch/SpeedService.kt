@@ -20,6 +20,9 @@ import android.os.PowerManager
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import android.media.AudioAttributes
+import android.speech.tts.TextToSpeech
+import java.util.Locale
 
 /** 背景服務：開車時一直算車速、比對測速點；導航畫面在前面也照常提醒 */
 class SpeedService : Service(), LocationListener {
@@ -31,6 +34,9 @@ class SpeedService : Service(), LocationListener {
     private var heading: Float? = null
     private var alertedCam: Cam? = null
     private var lastOverBuzz = 0L
+    private var tts: TextToSpeech? = null
+    private var ttsReady = false
+    private var lastOverSay = 0L
     // 連續確認：同一個測速點要連續 3 次都在正前方、而且越來越近，才提醒
     private var candCam: Cam? = null
     private var candHits = 0
@@ -63,6 +69,17 @@ class SpeedService : Service(), LocationListener {
             enableVibration(false) // 震動由程式自己控制
         })
         if (CamDb.cams.isEmpty()) CamDb.load(this)
+        tts = TextToSpeech(this) { st ->
+            if (st == TextToSpeech.SUCCESS) {
+                val t = tts ?: return@TextToSpeech
+                val r = t.setLanguage(Locale.TRADITIONAL_CHINESE)
+                if (r == TextToSpeech.LANG_MISSING_DATA || r == TextToSpeech.LANG_NOT_SUPPORTED) t.setLanguage(Locale.CHINESE)
+                t.setAudioAttributes(AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build())
+                ttsReady = true
+            }
+        }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -85,6 +102,7 @@ class SpeedService : Service(), LocationListener {
         try { lm.removeUpdates(this) } catch (_: Exception) {}
         wake?.let { if (it.isHeld) it.release() }
         nm.cancel(N_ALERT)
+        tts?.shutdown(); tts = null
         Live.mode = Mode.Idle
         Live.cam = null; Live.over = false; Live.aheadKm = null; Live.speed = 0
         super.onDestroy()
@@ -115,6 +133,11 @@ class SpeedService : Service(), LocationListener {
             .setAutoCancel(true)
             .build()
         try { nm.notify(N_ALERT, n) } catch (_: Exception) {}
+    }
+
+    private fun say(text: String) {
+        if (!Live.voice || !ttsReady) return
+        tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, "sw" + System.currentTimeMillis())
     }
 
     private fun buzz(pattern: LongArray) {
@@ -193,11 +216,17 @@ class SpeedService : Service(), LocationListener {
             if (alertedCam !== cam) {
                 alertedCam = cam
                 buzz(longArrayOf(0, 300, 150, 300))
+                say(if (cam.limit > 0) "前方測速，速限${cam.limit}" else "前方測速照相")
+                lastOverSay = System.currentTimeMillis()
             }
             val now = System.currentTimeMillis()
             if (over && now - lastOverBuzz > 3000) {
                 lastOverBuzz = now
                 buzz(longArrayOf(0, 500, 150, 500, 150, 500))
+            }
+            if (over && now - lastOverSay > 5000) {
+                lastOverSay = now
+                say("超速，請減速")
             }
             val lim = if (cam.limit > 0) "速限 ${cam.limit}" else "測速"
             alertNote(if (over) "超速！請減速" else "前方$lim", "${d.toInt()} 公尺　你 ${kmh.toInt()}")

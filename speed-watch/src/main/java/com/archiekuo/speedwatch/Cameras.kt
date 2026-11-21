@@ -28,6 +28,7 @@ object Live {
     var count by mutableIntStateOf(0)
     var updated by mutableStateOf("")
     var updating by mutableStateOf(false)
+    var voice by mutableStateOf(true)        // 語音警示開／關
 }
 
 object CamDb {
@@ -51,11 +52,15 @@ object CamDb {
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences("cams", Context.MODE_PRIVATE)
 
+    fun loadVoice(ctx: Context) { Live.voice = prefs(ctx).getBoolean("voice", true) }
+    fun setVoice(ctx: Context, on: Boolean) { Live.voice = on; prefs(ctx).edit().putBoolean("voice", on).apply() }
+
     fun load(ctx: Context) {
         val f = File(ctx.filesDir, "cameras.csv")
         val text = if (f.exists()) f.readText() else ctx.assets.open("cameras.csv").bufferedReader().readText()
         cams = parse(text)
         Live.count = cams.size
+        loadVoice(ctx)
         val t = prefs(ctx).getLong("time", 0L)
         Live.updated = if (t == 0L) "內建資料" else fmt(t)
     }

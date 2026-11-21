@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         CamDb.load(this)
         CamDb.updateIfOld(this)
-        setContent { Root(::tapStart, ::tapStop) }
+        setContent { Root(::tapStart, ::tapStop) { on -> CamDb.setVoice(this, on) } }
     }
 
     override fun onResume() {
@@ -128,7 +128,7 @@ private fun sign(c: android.graphics.Canvas, cx: Float, cy: Float, r: Float, lim
 private data class Hit(val r: RectF, val action: () -> Unit)
 
 @Composable
-private fun Root(onStart: () -> Unit, onStop: () -> Unit) {
+private fun Root(onStart: () -> Unit, onStop: () -> Unit, onVoice: (Boolean) -> Unit) {
     val ctx = LocalContext.current
     val ver = remember {
         runCatching { ctx.packageManager.getPackageInfo(ctx.packageName, 0).versionName }.getOrNull() ?: "0.1"
@@ -141,7 +141,7 @@ private fun Root(onStart: () -> Unit, onStop: () -> Unit) {
     // 讀取這些狀態，畫面才會跟著更新
     val mode = Live.mode; val speed = Live.speed; val cam = Live.cam; val dist = Live.camDist
     val over = Live.over; val ahead = Live.aheadKm; val gps = Live.gpsOk
-    val count = Live.count; val upd = Live.updated; val updating = Live.updating
+    val count = Live.count; val upd = Live.updated; val updating = Live.updating; val voice = Live.voice
 
     Canvas(
         modifier = Modifier.fillMaxSize().background(Color.Black)
@@ -166,12 +166,19 @@ private fun Root(onStart: () -> Unit, onStop: () -> Unit) {
             hits.clear()
 
             if (mode == Mode.Idle) {
-                c.t(txt(GREY, 34f), "測速提醒", 240f, 92f)
-                fill.shader = green(130f, 326f); c.drawCircle(240f, 228f, 98f, fill); fill.shader = null
-                c.t(txt(WHITE, 48f), "開始", 240f, 245f)
-                hits += Hit(RectF(140f, 128f, 340f, 328f)) { onStart() }
-                c.t(txt(LIGHT, 26f, false), "資料：全台 %,d 支".format(Locale.US, count), 240f, 366f)
-                c.t(txt(DIM, 24f, false), if (updating) "更新中…" else "更新：$upd", 240f, 402f)
+                c.t(txt(GREY, 34f), "測速提醒", 240f, 84f)
+                fill.shader = green(118f, 294f); c.drawCircle(240f, 206f, 88f, fill); fill.shader = null
+                c.t(txt(WHITE, 44f), "開始", 240f, 222f)
+                hits += Hit(RectF(150f, 116f, 330f, 296f)) { onStart() }
+                // 語音開關
+                val vr = RectF(130f, 312f, 350f, 374f)
+                if (voice) pill(c, vr, shader = green(vr.top, vr.bottom)) else pill(c, vr, 0xFF2A3038.toInt())
+                stroke.color = if (voice) 0xFFBFFFD8.toInt() else 0xFF4A5360.toInt(); stroke.strokeWidth = 2f
+                c.drawRoundRect(vr, 31f, 31f, stroke)
+                c.t(txt(if (voice) WHITE else 0xFF9AA4B2.toInt(), 30f), if (voice) "語音：開" else "語音：關", 240f, 354f)
+                hits += Hit(RectF(120f, 304f, 360f, 382f)) { onVoice(!voice) }
+                val info = "全台 %,d 支 · ".format(Locale.US, count) + (if (updating) "更新中…" else "更新 $upd")
+                c.t(txt(DIM, 22f, false), info, 240f, 412f, 300f)
             } else if (cam == null) {
                 // 行車中
                 c.t(txt(if (gps) GREEN_TXT else YELLOW, 26f), if (gps) "行車中" else "尋找 GPS…", 240f, 84f)
