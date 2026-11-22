@@ -11,8 +11,8 @@ android {
         applicationId = "com.archiekuo.buddhaface"
         minSdk = 34
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.5"
+        versionCode = 2
+        versionName = "1.6"
     }
 
     // 固定簽章：之後改版可以直接覆蓋安裝，不用先移除

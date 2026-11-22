@@ -5,4 +5,8 @@
     <string name="c_gold">金色</string>
     <string name="c_tech">科技青</string>
     <string name="c_silver">銀白</string>
+    <string name="font_label">字體</string>
+    <string name="f_orig">原本</string>
+    <string name="f_a">大字</string>
+    <string name="f_b">特大字</string>
 </resources>
